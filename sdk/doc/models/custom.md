@@ -3,6 +3,8 @@
 
 Additional values specific to your order that can be used to create manual fraud rules.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `Custom`
@@ -29,6 +31,7 @@ Additional values specific to your order that can be used to create manual fraud
 | `string7` | `string \| undefined` | Optional | **Constraints**: *Minimum Length*: `1`, *Maximum Length*: `100` |
 | `string8` | `string \| undefined` | Optional | **Constraints**: *Minimum Length*: `1`, *Maximum Length*: `100` |
 | `string9` | `string \| undefined` | Optional | **Constraints**: *Minimum Length*: `1`, *Maximum Length*: `100` |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -38,7 +41,11 @@ Additional values specific to your order that can be used to create manual fraud
   "number2": 110,
   "number3": 104,
   "number4": 246,
-  "number5": 16
+  "number5": 16,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

@@ -13,6 +13,7 @@ interface ValidationErrorResponse {
   errorName?: string;
   message?: string;
   jsonPath?: string;
+  additionalProperties?: Record<string, unknown>;
 }
 
 export class ValidationErrorResponseError extends ApiError<

@@ -1,12 +1,12 @@
 # 3 DS Actions
 
 ```ts
-const m3DSActionsController = new M3DSActionsController(client);
+const m3DsActionsApi = new M3DsActionsApi(client);
 ```
 
 ## Class Name
 
-`M3DSActionsController`
+`M3DsActionsApi`
 
 ## Methods
 
@@ -16,12 +16,12 @@ const m3DSActionsController = new M3DSActionsController(client);
 
 # Supply 3 Ds Device Data
 
-Gather additional device data
+Gather additional device data. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.
 
 ```ts
-async supply3dsDeviceData(
+async supply3DsDeviceData(
   linkData: string,
-  wPApiVersion: WPApiVersionEnum,
+  wpApiVersion: WpApiVersion,
   body?: DeviceDataRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<DeviceDataResponse201>>
@@ -32,7 +32,7 @@ async supply3dsDeviceData(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
+| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
 | `body` | [`DeviceDataRequest \| undefined`](../../doc/models/device-data-request.md) | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -45,12 +45,12 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wPApiVersion = WPApiVersionEnum.Enum20240601;
+const wpApiVersion = WpApiVersion.Enum20240601;
 
 try {
-  const { result, ...httpResponse } = await m3DSActionsController.supply3dsDeviceData(
+  const { result, ...httpResponse } = await m3DsActionsApi.supply3DsDeviceData(
     linkData,
-    wPApiVersion
+    wpApiVersion
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
@@ -99,12 +99,12 @@ try {
 
 # Complete 3 Ds Challenge
 
-Verify authentication challenge
+Verify authentication challenge. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after /payments/ and continues until the next / or URL delimiter.
 
 ```ts
-async complete3dsChallenge(
+async complete3DsChallenge(
   linkData: string,
-  wPApiVersion: WPApiVersionEnum,
+  wpApiVersion: WpApiVersion,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<ChallengeResponse201>>
 ```
@@ -114,7 +114,7 @@ async complete3dsChallenge(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
+| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -126,12 +126,12 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wPApiVersion = WPApiVersionEnum.Enum20240601;
+const wpApiVersion = WpApiVersion.Enum20240601;
 
 try {
-  const { result, ...httpResponse } = await m3DSActionsController.complete3dsChallenge(
+  const { result, ...httpResponse } = await m3DsActionsApi.complete3DsChallenge(
     linkData,
-    wPApiVersion
+    wpApiVersion
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;

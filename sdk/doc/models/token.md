@@ -3,6 +3,8 @@
 
 Details of the token created
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `Token`
@@ -22,6 +24,7 @@ Details of the token created
 | `countryCode` | `string \| undefined` | Optional | - |
 | `schemeReference` | `string \| undefined` | Optional | - |
 | `conflicts` | [`TokenResponseConflicts \| undefined`](../../doc/models/token-response-conflicts.md) | Optional | - |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -34,7 +37,11 @@ Details of the token created
   "cardHolderName": "Sherlock Holmes",
   "bin": "400000",
   "fundingType": "debit",
-  "schemeReference": "060720116005060"
+  "schemeReference": "060720116005060",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

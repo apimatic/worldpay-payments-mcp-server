@@ -1,6 +1,8 @@
 
 # Payment Refused Response
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `PaymentRefusedResponse`
@@ -20,9 +22,10 @@
 | `updatedPaymentInstrument` | [`UpdatedPaymentInstrument \| undefined`](../../doc/models/updated-payment-instrument.md) | Optional | Details of the updated payment instrument. |
 | `riskFactors` | [`RiskFactor[] \| undefined`](../../doc/models/risk-factor.md) | Optional | Any risk factors which have been identified for the authorization. This section will not appear if no risks are identified. |
 | `fraud` | [`Fraud \| undefined`](../../doc/models/fraud.md) | Optional | Details of the outcome of the Fraud assessment |
-| `threeDS` | [`Verification \| undefined`](../../doc/models/verification.md) | Optional | Details of the outcome of the 3DS authentication |
+| `threeDs` | [`Verification \| undefined`](../../doc/models/verification.md) | Optional | Details of the outcome of the 3DS authentication |
 | `exemption` | [`PaymentsExemption \| undefined`](../../doc/models/payments-exemption.md) | Optional | An object containing information about the exemption. |
 | `token` | [`Token \| undefined`](../../doc/models/token.md) | Optional | Details of the token created |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -30,10 +33,18 @@
 {
   "outcome": "refused",
   "transactionReference": "transactionReference8",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  },
   "refusalDescription": "refusalDescription4",
   "refusalCode": "refusalCode0",
   "advice": {
-    "code": "code8"
+    "code": "code8",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "paymentInstrument": {
     "type": "type0",
@@ -42,7 +53,15 @@
     "countryCode": "countryCode4",
     "expiryDate": {
       "year": 20,
-      "month": 244
+      "month": 244,
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
+    },
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
     }
   },
   "updatedPaymentInstrument": {
@@ -50,7 +69,11 @@
     "type": "card/plain",
     "accountUpdaterMessage": "The merchant is not registered in the update program",
     "cardNumber": "cardNumber2",
-    "cardBin": "cardBin2"
+    "cardBin": "cardBin2",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   }
 }
 ```

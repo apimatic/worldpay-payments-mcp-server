@@ -1,6 +1,8 @@
 
 # Payments Card Plain Payment Instrument
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `PaymentsCardPlainPaymentInstrument`
@@ -19,6 +21,7 @@
 | `cvc` | `string \| undefined` | Optional | CVC is a unique set of 3 or 4 numbers on the back of the card. Our API checks to see if the CVC supplied matches the CVC held by the issuing bank.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `4`, *Pattern*: `[0-9]*$` |
 | `billingAddress` | [`BillingAddress \| undefined`](../../doc/models/billing-address.md) | Optional | Contains the billing address information. |
 | `routing` | [`Routing \| undefined`](../../doc/models/routing.md) | Optional | An object containing specific routing preferences. |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -28,10 +31,18 @@
   "cardHolderName": "Sherlock Holmes",
   "expiryDate": {
     "year": 2028,
-    "month": 6
+    "month": 6,
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "cvc": "123",
   "type": "plain",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  },
   "billingAddress": {
     "address1": "address10",
     "address2": "address24",
@@ -39,10 +50,18 @@
     "postalCode": "postalCode6",
     "city": "city8",
     "state": "state2",
-    "countryCode": "countryCode2"
+    "countryCode": "countryCode2",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "routing": {
-    "preferredCardBrand": "amex"
+    "preferredCardBrand": "amex",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   }
 }
 ```

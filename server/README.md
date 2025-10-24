@@ -2,6 +2,18 @@
 
 Use a single API that orchestrates the payment flow to include FraudSight, 3DS and Token creation.
 
+__Authentication__
+
+Set your headers 
+
+```   
+Authorization: {your_credentials}    
+Content-Type: application/json    
+WP-Api-Version: 2024-06-01
+```    
+
+Replace `{your_credentials}` with your base64-encoded Basic Auth username and password.  
+
 __DNS whitelisting__
 
 Whitelist the following URLs:    
@@ -64,7 +76,7 @@ You need to fill in the parts that look `[LIKE-THIS]`.
     "paymentslib-mcp-server": {
       "command": "node",
       "args": [
-         "[YOUR-PATH-HERE]/worldpay-payments-mcp-server/server/cli.js",
+         "[YOUR-PATH-HERE]/server/server/cli.js",
         "--transport",
         "stdio"
       ],
@@ -89,7 +101,7 @@ You can also configure the MCP server in VS Code. The setup is similar to Claude
       "type": "stdio",
       "command": "node",
       "args": [
-         "[YOUR-PATH-HERE]/worldpay-payments-mcp-server/server/cli.js",
+         "[YOUR-PATH-HERE]/server/server/cli.js",
         "--transport",
         "stdio"
       ],
@@ -108,10 +120,10 @@ You can also configure the MCP server in VS Code. The setup is similar to Claude
 The MCP server uses the following environment variables:
 
 - `PAYMENTS_LIB_ENVIRONMENT`: Optional environment variable that must be one of the allowed enum values (Test, Live). Default: `Test`.
-- `PAYMENTS_LIB_TIMEOUT`: Timeout for API calls. Optional number variable. Default: `0`.
+- `PAYMENTS_LIB_TIMEOUT`: Timeout for API calls. Optional number variable. Default: `30000`.
 
 - **Authentication Variables**
- The MCP server uses the following authentication environment variables
+ The Mcp server uses the following authentication environment variables
   - `PAYMENTS_LIB_BASIC_AUTH_USER_NAME`
   - `PAYMENTS_LIB_BASIC_AUTH_PASSWORD`
 
@@ -120,9 +132,3 @@ The MCP server uses the following environment variables:
 - **Payment**
 - **3DS Actions**
 - **Manage Payments**
-
-## Example Prompt
-```
-Please create a one-off card payment using a plain card number The amount is 5 GBP and the payment method is card with following details: card number is 4000000000001091 and the expiry is may 2036 and the instrument type of the payment is plain
-Transaction Reference: (UNIQUE-REFERENCE-GENERATED-BY-YOU)
-```

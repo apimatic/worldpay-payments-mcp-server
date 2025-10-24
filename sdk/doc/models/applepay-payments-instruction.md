@@ -1,6 +1,8 @@
 
 # Applepay Payments Instruction
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `ApplepayPaymentsInstruction`
@@ -11,8 +13,9 @@
 
 ## Fields
 
-|  |
-| 
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -21,11 +24,19 @@
   "method": "applepay",
   "paymentInstrument": {
     "type": "plain",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    },
     "cardNumber": "cardNumber2",
     "cardHolderName": "cardHolderName0",
     "expiryDate": {
       "year": 20,
-      "month": 244
+      "month": 244,
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     },
     "cvc": "cvc0",
     "billingAddress": {
@@ -35,24 +46,44 @@
       "postalCode": "postalCode6",
       "city": "city8",
       "state": "state2",
-      "countryCode": "countryCode2"
+      "countryCode": "countryCode2",
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     },
     "routing": {
-      "preferredCardBrand": "amex"
+      "preferredCardBrand": "amex",
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     }
   },
   "narrative": {
     "line1": "line18",
-    "line2": "line20"
+    "line2": "line20",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "tokenCreation": {
     "type": "worldpay",
     "namespace": "namespace8",
-    "description": "description4"
+    "description": "description4",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "value": {
     "currency": "currency2",
-    "amount": 18
+    "amount": 18,
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "debtRepayment": false,
   "fraud": {
@@ -64,7 +95,15 @@
       "number2": 56,
       "number3": 50,
       "number4": 192,
-      "number5": 218
+      "number5": 218,
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
+    },
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
     }
   },
   "threeDS": {
@@ -73,7 +112,11 @@
     "challenge": {
       "returnUrl": "returnUrl6",
       "windowSize": "250x400",
-      "preference": "noPreference"
+      "preference": "noPreference",
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     },
     "deviceData": {
       "acceptHeader": "acceptHeader4",
@@ -82,7 +125,11 @@
       "browserJavaEnabled": false,
       "browserColorDepth": "16",
       "browserScreenHeight": 114,
-      "browserScreenWidth": 118
+      "browserScreenWidth": 118,
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     },
     "exemptionOnOutage": false,
     "previousSuspiciousActivity": false,
@@ -91,9 +138,21 @@
       "createdAt": "createdAt2",
       "modifiedAt": "modifiedAt2",
       "passwordModifiedAt": "passwordModifiedAt0",
-      "paymentAccountEnrolledAt": "paymentAccountEnrolledAt2"
+      "paymentAccountEnrolledAt": "paymentAccountEnrolledAt2",
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     },
-    "reorder": false
+    "reorder": false,
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

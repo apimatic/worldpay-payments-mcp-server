@@ -1,12 +1,12 @@
 # Manage Payments
 
 ```ts
-const managePaymentsController = new ManagePaymentsController(client);
+const managePaymentsApi = new ManagePaymentsApi(client);
 ```
 
 ## Class Name
 
-`ManagePaymentsController`
+`ManagePaymentsApi`
 
 ## Methods
 
@@ -20,12 +20,12 @@ const managePaymentsController = new ManagePaymentsController(client);
 
 # Query Events
 
-Query a payment
+Query a payment. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.
 
 ```ts
 async queryEvents(
   linkData: string,
-  wPApiVersion: WPApiVersionEnum,
+  wpApiVersion: WpApiVersion,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<QueryEventsResponse>>
 ```
@@ -35,7 +35,7 @@ async queryEvents(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
+| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -47,12 +47,12 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wPApiVersion = WPApiVersionEnum.Enum20240601;
+const wpApiVersion = WpApiVersion.Enum20240601;
 
 try {
-  const { result, ...httpResponse } = await managePaymentsController.queryEvents(
+  const { result, ...httpResponse } = await managePaymentsApi.queryEvents(
     linkData,
-    wPApiVersion
+    wpApiVersion
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
@@ -97,13 +97,13 @@ try {
 
 # Settle
 
-Settle a payment
+Settle a payment. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.
 
 ```ts
 async settle(
   linkData: string,
-  wPApiVersion: WPApiVersionEnum,
-  contentType: ContentTypeEnum,
+  wpApiVersion: WpApiVersion,
+  contentType: ContentType,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<SettleResponse>>
 ```
@@ -113,8 +113,8 @@ async settle(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
-| `contentType` | [`ContentTypeEnum`](../../doc/models/content-type-enum.md) | Header, Required | - |
+| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
+| `contentType` | [`ContentType`](../../doc/models/content-type.md) | Header, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -126,14 +126,14 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wPApiVersion = WPApiVersionEnum.Enum20240601;
+const wpApiVersion = WpApiVersion.Enum20240601;
 
-const contentType = ContentTypeEnum.EnumApplicationjson;
+const contentType = ContentType.EnumApplicationjson;
 
 try {
-  const { result, ...httpResponse } = await managePaymentsController.settle(
+  const { result, ...httpResponse } = await managePaymentsApi.settle(
     linkData,
-    wPApiVersion,
+    wpApiVersion,
     contentType
   );
   // Get more response info...
@@ -182,12 +182,12 @@ try {
 
 # Partial Settle
 
-Partially settle a payment
+Partially settle a payment. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.
 
 ```ts
 async partialSettle(
   linkData: string,
-  wPApiVersion: WPApiVersionEnum,
+  wpApiVersion: WpApiVersion,
   body: PaymentsPartialSettleRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<PartialSettleResponse>>
@@ -198,7 +198,7 @@ async partialSettle(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
+| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
 | `body` | [`PaymentsPartialSettleRequest`](../../doc/models/payments-partial-settle-request.md) | Body, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -211,7 +211,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wPApiVersion = WPApiVersionEnum.Enum20240601;
+const wpApiVersion = WpApiVersion.Enum20240601;
 
 const body: PaymentsPartialSettleRequest = {
   reference: 'partial-settle-reference',
@@ -226,9 +226,9 @@ const body: PaymentsPartialSettleRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await managePaymentsController.partialSettle(
+  const { result, ...httpResponse } = await managePaymentsApi.partialSettle(
     linkData,
-    wPApiVersion,
+    wpApiVersion,
     body
   );
   // Get more response info...
@@ -286,13 +286,13 @@ try {
 
 # Refund
 
-Refund a payment
+Refund a payment. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.
 
 ```ts
 async refund(
   linkData: string,
-  wPApiVersion: WPApiVersionEnum,
-  contentType: ContentTypeEnum,
+  wpApiVersion: WpApiVersion,
+  contentType: ContentType,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<RefundResponse>>
 ```
@@ -302,8 +302,8 @@ async refund(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
-| `contentType` | [`ContentTypeEnum`](../../doc/models/content-type-enum.md) | Header, Required | - |
+| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
+| `contentType` | [`ContentType`](../../doc/models/content-type.md) | Header, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -315,14 +315,14 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wPApiVersion = WPApiVersionEnum.Enum20240601;
+const wpApiVersion = WpApiVersion.Enum20240601;
 
-const contentType = ContentTypeEnum.EnumApplicationjson;
+const contentType = ContentType.EnumApplicationjson;
 
 try {
-  const { result, ...httpResponse } = await managePaymentsController.refund(
+  const { result, ...httpResponse } = await managePaymentsApi.refund(
     linkData,
-    wPApiVersion,
+    wpApiVersion,
     contentType
   );
   // Get more response info...
@@ -361,12 +361,12 @@ try {
 
 # Partial Refund
 
-Partially refund a payment
+Partially refund a payment. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.
 
 ```ts
 async partialRefund(
   linkData: string,
-  wPApiVersion: WPApiVersionEnum,
+  wpApiVersion: WpApiVersion,
   body: PaymentsPartialRefundRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<PartialRefundResponse>>
@@ -377,7 +377,7 @@ async partialRefund(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
+| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
 | `body` | [`PaymentsPartialRefundRequest`](../../doc/models/payments-partial-refund-request.md) | Body, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -390,7 +390,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wPApiVersion = WPApiVersionEnum.Enum20240601;
+const wpApiVersion = WpApiVersion.Enum20240601;
 
 const body: PaymentsPartialRefundRequest = {
   reference: 'partial-refund-reference',
@@ -401,9 +401,9 @@ const body: PaymentsPartialRefundRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await managePaymentsController.partialRefund(
+  const { result, ...httpResponse } = await managePaymentsApi.partialRefund(
     linkData,
-    wPApiVersion,
+    wpApiVersion,
     body
   );
   // Get more response info...
@@ -449,13 +449,13 @@ try {
 
 # Cancel
 
-Cancel a payment
+Cancel a payment. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.
 
 ```ts
 async cancel(
   linkData: string,
-  wPApiVersion: WPApiVersionEnum,
-  contentType: ContentTypeEnum,
+  wpApiVersion: WpApiVersion,
+  contentType: ContentType,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<CancelResponse>>
 ```
@@ -465,8 +465,8 @@ async cancel(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
-| `contentType` | [`ContentTypeEnum`](../../doc/models/content-type-enum.md) | Header, Required | - |
+| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
+| `contentType` | [`ContentType`](../../doc/models/content-type.md) | Header, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -478,14 +478,14 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wPApiVersion = WPApiVersionEnum.Enum20240601;
+const wpApiVersion = WpApiVersion.Enum20240601;
 
-const contentType = ContentTypeEnum.EnumApplicationjson;
+const contentType = ContentType.EnumApplicationjson;
 
 try {
-  const { result, ...httpResponse } = await managePaymentsController.cancel(
+  const { result, ...httpResponse } = await managePaymentsApi.cancel(
     linkData,
-    wPApiVersion,
+    wpApiVersion,
     contentType
   );
   // Get more response info...

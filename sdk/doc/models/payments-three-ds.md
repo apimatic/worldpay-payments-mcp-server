@@ -1,30 +1,33 @@
 
-# Payments Three DS
+# Payments Three Ds
 
 An object containing 3DS authentication preferences.
 
 Read more on how to set it up under our [__3DS Authentication__](/products/payments/enable-features/3ds-authentication) guide.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
-`PaymentsThreeDS`
+`PaymentsThreeDs`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | [`Type10Enum`](../../doc/models/type-10-enum.md) | Required | - |
-| `mode` | [`ModeEnum`](../../doc/models/mode-enum.md) | Required | - |
+| `type` | [`Type9`](../../doc/models/type-9.md) | Required | - |
+| `mode` | [`Mode`](../../doc/models/mode.md) | Required | - |
 | `challenge` | [`Challenge`](../../doc/models/challenge.md) | Required | An object containing 3DS challenge preferences and configuration. |
 | `deviceData` | [`DeviceData`](../../doc/models/device-data.md) | Required | An object containing device data for 3DS & Fraud assessment. |
 | `exemptionOnOutage` | `boolean \| undefined` | Optional | Attempt authorization (without liability shift) using an authentication outage exemption in the event of a 3DS network failure. Even with this boolean set it is not currently part of default merchant setup. See [how to enable authentication outage exemptions](/products/payments/enable-features/3ds-authentication#how-to-enable-authentication-outage-exemptions)<br><br>**Default**: `false` |
 | `previousSuspiciousActivity` | `boolean \| undefined` | Optional | Has the account been flagged for suspicious activity. |
-| `userType` | [`UserTypeEnum \| undefined`](../../doc/models/user-type-enum.md) | Optional | - |
+| `userType` | [`UserType \| undefined`](../../doc/models/user-type.md) | Optional | - |
 | `accountHistory` | [`AccountHistory \| undefined`](../../doc/models/account-history.md) | Optional | Customer account history. |
 | `reorder` | `boolean \| undefined` | Optional | Repeat of a previous order. |
 | `preOrderDate` | `string \| undefined` | Optional | Expected date that a pre-ordered purchase will be available. |
 | `transactionHistory` | [`TransactionHistory \| undefined`](../../doc/models/transaction-history.md) | Optional | Object containing details of the last transaction. |
 | `giftCardsPurchase` | [`PaymentsGiftCardsPurchase \| undefined`](../../doc/models/payments-gift-cards-purchase.md) | Optional | If the order is being used to purchase a gift card. |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -35,7 +38,11 @@ Read more on how to set it up under our [__3DS Authentication__](/products/payme
   "challenge": {
     "returnUrl": "returnUrl6",
     "windowSize": "390x400",
-    "preference": "noPreference"
+    "preference": "noPreference",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "deviceData": {
     "acceptHeader": "acceptHeader4",
@@ -44,7 +51,11 @@ Read more on how to set it up under our [__3DS Authentication__](/products/payme
     "browserJavaEnabled": false,
     "browserColorDepth": "16",
     "browserScreenHeight": 114,
-    "browserScreenWidth": 118
+    "browserScreenWidth": 118,
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "exemptionOnOutage": false,
   "previousSuspiciousActivity": false,
@@ -53,9 +64,17 @@ Read more on how to set it up under our [__3DS Authentication__](/products/payme
     "createdAt": "createdAt2",
     "modifiedAt": "modifiedAt2",
     "passwordModifiedAt": "passwordModifiedAt0",
-    "paymentAccountEnrolledAt": "paymentAccountEnrolledAt2"
+    "paymentAccountEnrolledAt": "paymentAccountEnrolledAt2",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
-  "reorder": false
+  "reorder": false,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

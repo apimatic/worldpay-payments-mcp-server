@@ -3,12 +3,12 @@
 Take a payment
 
 ```ts
-const paymentController = new PaymentController(client);
+const paymentApi = new PaymentApi(client);
 ```
 
 ## Class Name
 
-`PaymentController`
+`PaymentApi`
 
 
 # Payment
@@ -17,7 +17,7 @@ Initiate Payment. Take merchant entity as default if not provided
 
 ```ts
 async payment(
-  wPApiVersion: WPApiVersionEnum,
+  wpApiVersion: WpApiVersion,
   body: PaymentRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<PaymentsResponse202>>
@@ -27,7 +27,7 @@ async payment(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
+| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
 | `body` | [`PaymentRequest`](../../doc/models/payment-request.md) | Body, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -38,7 +38,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ## Example Usage
 
 ```ts
-const wPApiVersion = WPApiVersionEnum.Enum20240601;
+const wpApiVersion = WpApiVersion.Enum20240601;
 
 const body: PaymentRequest = {
   transactionReference: 'Memory265-13/08/1876',
@@ -77,8 +77,8 @@ const body: PaymentRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await paymentController.payment(
-    wPApiVersion,
+  const { result, ...httpResponse } = await paymentApi.payment(
+    wpApiVersion,
     body
   );
   // Get more response info...

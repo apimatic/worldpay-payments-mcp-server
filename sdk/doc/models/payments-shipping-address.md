@@ -1,6 +1,8 @@
 
 # Payments Shipping Address
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `PaymentsShippingAddress`
@@ -16,6 +18,7 @@
 | `city` | `string` | Required | Address City<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `50` |
 | `state` | `string \| undefined` | Optional | Address State<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `30` |
 | `countryCode` | `string` | Required | The supported ISO 3166-1 alpha-2 country code |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -27,7 +30,11 @@
   "postalCode": "postalCode8",
   "city": "city0",
   "state": "state4",
-  "countryCode": "countryCode4"
+  "countryCode": "countryCode4",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

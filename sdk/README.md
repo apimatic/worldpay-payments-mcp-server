@@ -96,22 +96,6 @@ npm install
 
 ![Install Paymentslib Dependency](https://apidocs.io/illustration/typescript?step=installDependency)
 
-## Test the SDK
-
-To validate the functionality of this SDK, you can execute all tests located in the `test` directory. This SDK utilizes `Jest` as both the testing framework and test runner.
-
-To run the tests, navigate to the root directory of the SDK and execute the following command:
-
-```bash
-npm run test
-```
-
-Or you can also run tests with coverage report:
-
-```bash
-npm run test:coverage
-```
-
 ## Initialize the API Client
 
 **_Note:_** Documentation for the client can be found [here.](doc/client.md)
@@ -121,23 +105,33 @@ The following parameters are configurable for the API Client:
 | Parameter | Type | Description |
 |  --- | --- | --- |
 | environment | `Environment` | The API environment. <br> **Default: `Environment.Test`** |
-| timeout | `number` | Timeout for API calls.<br>*Default*: `0` |
+| timeout | `number` | Timeout for API calls.<br>*Default*: `30000` |
 | httpClientOptions | [`Partial<HttpClientOptions>`](doc/http-client-options.md) | Stable configurable http client options. |
 | unstableHttpClientOptions | `any` | Unstable configurable http client options. |
+| logging | [`PartialLoggingOptions`](doc/partial-logging-options.md) | Logging Configuration to enable logging |
 | basicAuthCredentials | [`BasicAuthCredentials`](doc/auth/basic-authentication.md) | The credential object for basicAuth |
 
 The API client can be initialized as follows:
 
 ```ts
-import { Client, Environment } from 'paymentslib';
+import { Client, Environment, LogLevel } from 'paymentslib';
 
 const client = new Client({
   basicAuthCredentials: {
     username: 'BasicAuthUserName',
     password: 'BasicAuthPassword'
   },
-  timeout: 0,
+  timeout: 30000,
   environment: Environment.Test,
+  logging: {
+    logLevel: LogLevel.Info,
+    logRequest: {
+      logBody: true
+    },
+    logResponse: {
+      logHeaders: true
+    }
+  },
 });
 ```
 
@@ -171,6 +165,10 @@ This API uses the following authentication schemes.
 * [HttpClientOptions](doc/http-client-options.md)
 * [RetryConfiguration](doc/retry-configuration.md)
 * [ProxySettings](doc/proxy-settings.md)
+* [PartialLoggingOptions](doc/partial-logging-options.md)
+* [PartialRequestLoggingOptions](doc/partial-request-logging-options.md)
+* [PartialResponseLoggingOptions](doc/partial-response-logging-options.md)
+* [LoggerInterface](doc/logger-interface.md)
 
 ### HTTP
 

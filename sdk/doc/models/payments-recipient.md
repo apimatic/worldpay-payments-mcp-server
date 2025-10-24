@@ -5,6 +5,8 @@ An object containing information about the recipient of financial services. Requ
 
 Read more on how to set it up under our [__Financial Services__](/products/payments/enable-features/financial-services-mcc6012-mcc6051) guide.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `PaymentsRecipient`
@@ -17,6 +19,7 @@ Read more on how to set it up under our [__Financial Services__](/products/payme
 | `lastName` | `string \| undefined` | Optional | The last name of the recipient.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `22`, *Pattern*: `^[A-Za-z@!£*#$)(+\-_=.,/;:'"]*$` |
 | `address` | [`PaymentsRecipientAddress \| undefined`](../../doc/models/payments-recipient-address.md) | Optional | - |
 | `dateOfBirth` | `string \| undefined` | Optional | Recipient's date of birth. |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -25,9 +28,17 @@ Read more on how to set it up under our [__Financial Services__](/products/payme
   "accountReference": "accountReference6",
   "lastName": "lastName0",
   "address": {
-    "postalCode": "postalCode8"
+    "postalCode": "postalCode8",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
-  "dateOfBirth": "2016-03-13T12:52:32.123Z"
+  "dateOfBirth": "2016-03-13T12:52:32.123Z",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

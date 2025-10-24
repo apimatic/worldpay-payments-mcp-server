@@ -1,6 +1,8 @@
 
 # Wallet Payment Instrument
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `WalletPaymentInstrument`
@@ -9,9 +11,10 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | [`Type6Enum`](../../doc/models/type-6-enum.md) | Required | The type of instrument. |
+| `type` | [`Type6`](../../doc/models/type-6.md) | Required | The type of instrument. |
 | `walletToken` | `string` | Required | - |
 | `billingAddress` | [`BillingAddress \| undefined`](../../doc/models/billing-address.md) | Optional | Contains the billing address information. |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -26,7 +29,15 @@
     "postalCode": "postalCode6",
     "city": "city8",
     "state": "state2",
-    "countryCode": "countryCode2"
+    "countryCode": "countryCode2",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

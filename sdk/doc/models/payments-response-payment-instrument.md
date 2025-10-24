@@ -1,6 +1,8 @@
 
 # Payments Response Payment Instrument
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `PaymentsResponsePaymentInstrument`
@@ -19,6 +21,7 @@
 | `category` | `string \| undefined` | Optional | - |
 | `issuerName` | `string \| undefined` | Optional | - |
 | `paymentAccountReference` | `string \| undefined` | Optional | - |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -30,7 +33,15 @@
   "countryCode": "countryCode0",
   "expiryDate": {
     "year": 20,
-    "month": 244
+    "month": 244,
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

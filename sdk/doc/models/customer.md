@@ -1,6 +1,8 @@
 
 # Customer
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `Customer`
@@ -17,6 +19,7 @@
 | `email` | `string \| undefined` | Optional | Customers's email address used for the ecommerce account.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `128`, *Pattern*: `^.+@.+$` |
 | `ipAddress` | `string \| undefined` | Optional | A unique identifier for your customer's physical location that<br>can be used by the issuer in risk analysis. Must be in IPv4 or IPv6 format.<br>E.g. 192.0.0.0. |
 | `documentReference` | `string \| undefined` | Optional | Required for domestic processing in some Latin American countries.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `50`, *Pattern*: `^[-A-Za-z0-9_\-/\\*~+.,&()]*$` |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -26,7 +29,11 @@
   "firstName": "firstName6",
   "lastName": "lastName2",
   "phone": "phone2",
-  "dateOfBirth": "2016-03-13T12:52:32.123Z"
+  "dateOfBirth": "2016-03-13T12:52:32.123Z",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

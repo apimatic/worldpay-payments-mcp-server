@@ -3,6 +3,8 @@
 
 Object that contains authentication related information.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `Authentication`
@@ -21,6 +23,7 @@ Object that contains authentication related information.
 | `authenticationFlow` | `string \| undefined` | Optional | - |
 | `networkScore` | `string \| undefined` | Optional | - |
 | `brand` | `string \| undefined` | Optional | - |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -30,7 +33,11 @@ Object that contains authentication related information.
   "type": "type2",
   "authenticationValue": "authenticationValue0",
   "eci": "eci8",
-  "transactionId": "transactionId8"
+  "transactionId": "transactionId8",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

@@ -1,6 +1,8 @@
 
 # Payments Network Token Payment Instrument
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `PaymentsNetworkTokenPaymentInstrument`
@@ -19,6 +21,7 @@
 | `eci` | `string \| undefined` | Optional | Electronic Commerce Indicator.<br><br>**Constraints**: *Pattern*: `^\d{2}$` |
 | `expiryDate` | [`ExpiryDate`](../../doc/models/expiry-date.md) | Required | Contains your customer's card or token expiry date. |
 | `billingAddress` | [`BillingAddress \| undefined`](../../doc/models/billing-address.md) | Optional | Contains the billing address information. |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -27,9 +30,17 @@
   "tokenNumber": "tokenNumber0",
   "expiryDate": {
     "year": 2028,
-    "month": 6
+    "month": 6,
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "type": "networkToken",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  },
   "cardHolderName": "cardHolderName2",
   "cryptogram": "cryptogram8",
   "eci": "eci8",
@@ -40,7 +51,11 @@
     "postalCode": "postalCode6",
     "city": "city8",
     "state": "state2",
-    "countryCode": "countryCode2"
+    "countryCode": "countryCode2",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   }
 }
 ```

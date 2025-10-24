@@ -7,132 +7,126 @@
 import { CoreClient } from '@apimatic/metadata-interfaces';
 import { Client } from '../client.js';
 import { createConfigurationFromEnvironment } from '../configuration.js';
-import { M3DSActionsController } from '../controllers/m3DSActionsController.js';
-import { ManagePaymentsController } from '../controllers/managePaymentsController.js';
-import { PaymentController } from '../controllers/paymentController.js';
+import { M3DsActionsApi } from '../controllers/m3DsActionsApi.js';
+import { ManagePaymentsApi } from '../controllers/managePaymentsApi.js';
+import { PaymentApi } from '../controllers/paymentApi.js';
 import { EndpointMetadata, RequestSchema } from './endpointMetadata.js';
-import * as m3DSActionsControllerSchemas from './endpointSchemas/m3DSActionsControllerSchemas.js';
-import * as managePaymentsControllerSchemas from './endpointSchemas/managePaymentsControllerSchemas.js';
-import * as paymentControllerSchemas from './endpointSchemas/paymentControllerSchemas.js';
+import * as m3DsActionsApiSchemas from './endpointSchemas/m3DsActionsApiSchemas.js';
+import * as managePaymentsApiSchemas from './endpointSchemas/managePaymentsApiSchemas.js';
+import * as paymentApiSchemas from './endpointSchemas/paymentApiSchemas.js';
 
 export const endpoints = {
   'Payment-payment': new EndpointMetadata(
     'payment',
     'Payment',
-    new RequestSchema(paymentControllerSchemas.paymentMetadataRequestSchema),
+    new RequestSchema(paymentApiSchemas.paymentMetadataRequestSchema),
     (client, mapped) =>
-      new PaymentController(client).payment(mapped.wPApiVersion, mapped.body),
+      new PaymentApi(client).payment(mapped.wpApiVersion, mapped.body),
     'Initiate Payment. Take merchant entity as default if not provided'
   ),
   '3DS Actions-supply3dsDeviceData': new EndpointMetadata(
     'supply3dsDeviceData',
     '3DS Actions',
     new RequestSchema(
-      m3DSActionsControllerSchemas.supply3dsDeviceDataMetadataRequestSchema
+      m3DsActionsApiSchemas.supply3DsDeviceDataMetadataRequestSchema
     ),
     (client, mapped) =>
-      new M3DSActionsController(client).supply3dsDeviceData(
+      new M3DsActionsApi(client).supply3DsDeviceData(
         mapped.linkData,
-        mapped.wPApiVersion,
+        mapped.wpApiVersion,
         mapped.body
       ),
-    'Gather additional device data'
+    'Gather additional device data. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.'
   ),
   '3DS Actions-complete3dsChallenge': new EndpointMetadata(
     'complete3dsChallenge',
     '3DS Actions',
     new RequestSchema(
-      m3DSActionsControllerSchemas.complete3dsChallengeMetadataRequestSchema
+      m3DsActionsApiSchemas.complete3DsChallengeMetadataRequestSchema
     ),
     (client, mapped) =>
-      new M3DSActionsController(client).complete3dsChallenge(
+      new M3DsActionsApi(client).complete3DsChallenge(
         mapped.linkData,
-        mapped.wPApiVersion
+        mapped.wpApiVersion
       ),
-    'Verify authentication challenge'
+    'Verify authentication challenge. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after /payments/ and continues until the next / or URL delimiter.'
   ),
   'Manage Payments-queryEvents': new EndpointMetadata(
     'queryEvents',
     'Manage Payments',
     new RequestSchema(
-      managePaymentsControllerSchemas.queryEventsMetadataRequestSchema
+      managePaymentsApiSchemas.queryEventsMetadataRequestSchema
     ),
     (client, mapped) =>
-      new ManagePaymentsController(client).queryEvents(
+      new ManagePaymentsApi(client).queryEvents(
         mapped.linkData,
-        mapped.wPApiVersion
+        mapped.wpApiVersion
       ),
-    'Query a payment'
+    'Query a payment. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.'
   ),
   'Manage Payments-settle': new EndpointMetadata(
     'settle',
     'Manage Payments',
-    new RequestSchema(
-      managePaymentsControllerSchemas.settleMetadataRequestSchema
-    ),
+    new RequestSchema(managePaymentsApiSchemas.settleMetadataRequestSchema),
     (client, mapped) =>
-      new ManagePaymentsController(client).settle(
+      new ManagePaymentsApi(client).settle(
         mapped.linkData,
-        mapped.wPApiVersion,
+        mapped.wpApiVersion,
         mapped.contentType
       ),
-    'Settle a payment'
+    'Settle a payment. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.'
   ),
   'Manage Payments-partialSettle': new EndpointMetadata(
     'partialSettle',
     'Manage Payments',
     new RequestSchema(
-      managePaymentsControllerSchemas.partialSettleMetadataRequestSchema
+      managePaymentsApiSchemas.partialSettleMetadataRequestSchema
     ),
     (client, mapped) =>
-      new ManagePaymentsController(client).partialSettle(
+      new ManagePaymentsApi(client).partialSettle(
         mapped.linkData,
-        mapped.wPApiVersion,
+        mapped.wpApiVersion,
         mapped.body
       ),
-    'Partially settle a payment'
+    'Partially settle a payment. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.'
   ),
   'Manage Payments-refund': new EndpointMetadata(
     'refund',
     'Manage Payments',
-    new RequestSchema(
-      managePaymentsControllerSchemas.refundMetadataRequestSchema
-    ),
+    new RequestSchema(managePaymentsApiSchemas.refundMetadataRequestSchema),
     (client, mapped) =>
-      new ManagePaymentsController(client).refund(
+      new ManagePaymentsApi(client).refund(
         mapped.linkData,
-        mapped.wPApiVersion,
+        mapped.wpApiVersion,
         mapped.contentType
       ),
-    'Refund a payment'
+    'Refund a payment. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.'
   ),
   'Manage Payments-partialRefund': new EndpointMetadata(
     'partialRefund',
     'Manage Payments',
     new RequestSchema(
-      managePaymentsControllerSchemas.partialRefundMetadataRequestSchema
+      managePaymentsApiSchemas.partialRefundMetadataRequestSchema
     ),
     (client, mapped) =>
-      new ManagePaymentsController(client).partialRefund(
+      new ManagePaymentsApi(client).partialRefund(
         mapped.linkData,
-        mapped.wPApiVersion,
+        mapped.wpApiVersion,
         mapped.body
       ),
-    'Partially refund a payment'
+    'Partially refund a payment. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.'
   ),
   'Manage Payments-cancel': new EndpointMetadata(
     'cancel',
     'Manage Payments',
-    new RequestSchema(
-      managePaymentsControllerSchemas.cancelMetadataRequestSchema
-    ),
+    new RequestSchema(managePaymentsApiSchemas.cancelMetadataRequestSchema),
     (client, mapped) =>
-      new ManagePaymentsController(client).cancel(
+      new ManagePaymentsApi(client).cancel(
         mapped.linkData,
-        mapped.wPApiVersion,
+        mapped.wpApiVersion,
         mapped.contentType
       ),
-    'Cancel a payment'
+    'Cancel a payment. `linkData` refers to the pre-encoded segment of the URL that uniquely identifies a payment resource. It appears immediately after `/payments/` and continues until the next `/` or URL delimiter.'
   ),
 } as const;
 
