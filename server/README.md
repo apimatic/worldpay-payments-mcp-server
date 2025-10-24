@@ -41,7 +41,6 @@ node ./cli.js
 Flags:
 -  `--port <number>`, `-p` : Port to run the http server on
 -  `--transport <string>`, `-t` : Transport (`http` | `stdio`)
--  `--toolsets <items>` : Comma-separated list of toolsets. By default, all toolsets are included.
 
 ## Installation Guide
 
@@ -127,8 +126,11 @@ The MCP server uses the following environment variables:
   - `PAYMENTS_LIB_BASIC_AUTH_USER_NAME`
   - `PAYMENTS_LIB_BASIC_AUTH_PASSWORD`
 
-## Available Toolsets
+## Example Prompt
 
-- **Payment**
-- **3DS Actions**
-- **Manage Payments**
+```
+Please create a one-off card payment using a plain card number The amount is 5 GBP and the payment method is card with following details: card number is 4000000000001091 and the expiry is may 2036 and the instrument type of the payment is plain
+Transaction Reference: (UNIQUE-REFERENCE-TO-BE-GENERATED)
+
+After that, query the payment.
+```
