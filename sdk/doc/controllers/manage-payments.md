@@ -214,7 +214,7 @@ const linkData = 'linkData6';
 const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
 const body: PaymentsPartialSettleRequest = {
-  reference: ReferenceEnum.Partialsettlereference,
+  reference: 'partial-settle-reference',
   value: {
     currency: 'GBP',
     amount: 500,
@@ -393,7 +393,7 @@ const linkData = 'linkData6';
 const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
 const body: PaymentsPartialRefundRequest = {
-  reference: Reference1Enum.Partialrefundreference,
+  reference: 'partial-refund-reference',
   value: {
     currency: 'GBP',
     amount: 10,

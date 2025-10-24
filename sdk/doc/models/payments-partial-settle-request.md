@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reference` | [`ReferenceEnum`](../../doc/models/reference-enum.md) | Required | - |
+| `reference` | `string` | Required | - |
 | `sequence` | [`PaymentsSequence \| undefined`](../../doc/models/payments-sequence.md) | Optional | The sequence number and total number of expected partial settlement requests for the payment. |
 | `value` | [`Value`](../../doc/models/value.md) | Required | - |
 
@@ -17,7 +17,7 @@
 
 ```json
 {
-  "reference": "partial-settle-reference",
+  "reference": "reference2",
   "value": {
     "currency": "USD",
     "amount": 250

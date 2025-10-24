@@ -140,8 +140,6 @@ export { PurposeEnum } from './models/purposeEnum.js';
 export type { QueryActionList } from './models/queryActionList.js';
 export type { QueryEventsResponse } from './models/queryEventsResponse.js';
 export { ReasonEnum } from './models/reasonEnum.js';
-export { Reference1Enum } from './models/reference1Enum.js';
-export { ReferenceEnum } from './models/referenceEnum.js';
 export type { RefundResponse } from './models/refundResponse.js';
 export { ResultEnum } from './models/resultEnum.js';
 export { RiskEnum } from './models/riskEnum.js';
