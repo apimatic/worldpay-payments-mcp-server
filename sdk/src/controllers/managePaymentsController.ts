@@ -223,24 +223,19 @@ export class ManagePaymentsController extends BaseController {
    *
    * @param linkData
    * @param wPApiVersion   The API version
-   * @param body
    * @return Response from the API call
    */
   async cancel(
     linkData: string,
     wPApiVersion: WPApiVersionEnum,
-    body?: unknown,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<CancelResponse>> {
     const req = this.createRequest('POST');
     const mapped = req.prepareArgs({
       linkData: [linkData, string()],
       wPApiVersion: [wPApiVersion, wPApiVersionEnumSchema],
-      body: [body, optional(unknown())],
     });
     req.header('WP-Api-Version', mapped.wPApiVersion);
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
     req.appendTemplatePath`/api/payments/${skipEncode(
       mapped.linkData
     )}/cancellations`;

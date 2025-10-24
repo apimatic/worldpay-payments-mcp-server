@@ -449,7 +449,6 @@ Cancel a payment
 async cancel(
   linkData: string,
   wPApiVersion: WPApiVersionEnum,
-  body?: unknown,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<CancelResponse>>
 ```
@@ -460,7 +459,6 @@ async cancel(
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
 | `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
-| `body` | `unknown \| undefined` | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type

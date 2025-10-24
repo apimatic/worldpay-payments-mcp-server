@@ -22,7 +22,7 @@ import { ValidationErrorResponseError } from '../errors/validationErrorResponseE
 
 export class PaymentController extends BaseController {
   /**
-   * Initiate Payment
+   * Initiate Payment. Take merchant entity as default if not provided
    *
    * @param wPApiVersion   The API version
    * @param body

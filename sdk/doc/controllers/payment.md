@@ -13,7 +13,7 @@ const paymentController = new PaymentController(client);
 
 # Payment
 
-Initiate Payment
+Initiate Payment. Take merchant entity as default if not provided
 
 ```ts
 async payment(

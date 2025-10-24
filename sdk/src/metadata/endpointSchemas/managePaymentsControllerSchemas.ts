@@ -41,6 +41,5 @@ export const partialRefundMetadataRequestSchema = object({
 export const cancelMetadataRequestSchema = object({
   linkData: ['linkData', string()],
   wPApiVersion: ['WP-Api-Version', wPApiVersionEnumSchema],
-  body: ['body', optional(unknown())],
 });
 

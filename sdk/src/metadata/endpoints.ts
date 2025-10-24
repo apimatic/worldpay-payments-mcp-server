@@ -129,8 +129,7 @@ export const endpoints = {
     (client, mapped) =>
       new ManagePaymentsController(client).cancel(
         mapped.linkData,
-        mapped.wPApiVersion,
-        mapped.body
+        mapped.wPApiVersion
       ),
     'Cancel a payment'
   ),
