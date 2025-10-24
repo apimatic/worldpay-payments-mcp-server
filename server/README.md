@@ -54,7 +54,7 @@ Before you begin, ensure the following requirements are met:
   ```
 - **MCP-Compatible Host**: A tool that supports MCP servers (remote or local `stdio`):
     - **VS Code** 1.101+
-    - **Claude Desktop**
+    - **Claude Desktop** (This MCP Server works best with Claude Desktop using models such as Claude Haiku 4.5)
     - **Cursor**
 
 ### Setup in Claude Desktop / Cursor
