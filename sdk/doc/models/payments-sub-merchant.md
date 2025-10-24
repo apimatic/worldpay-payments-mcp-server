@@ -3,8 +3,6 @@
 
 Your sub-merchant's details.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentsSubMerchant`
@@ -19,7 +17,6 @@ Your sub-merchant's details.
 | `phoneNumber` | `string \| undefined` | Optional | Phone number of your subMerchant's company.<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `20`, *Pattern*: `^(?!\s*$)[0-9\s()+\-/.x]*$` |
 | `taxReference` | `string \| undefined` | Optional | Tax Reference of your subMerchant's company.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `20`, *Pattern*: `^(?!\s*$)[a-zA-Z0-9\s-]*$` |
 | `email` | `string \| undefined` | Optional | Email address of your subMerchant's company.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `40`, *Pattern*: `^.+@.+$` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -32,19 +29,11 @@ Your sub-merchant's details.
     "street": "221B Baker Street",
     "city": "London",
     "state": "GB",
-    "countryCode": "GB",
-    "exampleAdditionalProperty": {
-      "key1": "val1",
-      "key2": "val2"
-    }
+    "countryCode": "GB"
   },
   "phoneNumber": "987-65-4321",
   "taxReference": "987-65-4321",
-  "email": "email@example.com",
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
-  }
+  "email": "email@example.com"
 }
 ```
 

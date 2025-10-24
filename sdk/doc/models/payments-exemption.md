@@ -3,8 +3,6 @@
 
 An object containing information about the exemption.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentsExemption`
@@ -14,11 +12,10 @@ An object containing information about the exemption.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `granted` | `boolean \| undefined` | Optional | Was an exemption returned by Worldpay's TRA assessment. |
-| `placement` | [`Placement \| undefined`](../../doc/models/placement.md) | Optional | Indicates whether the exemption has been placed in a payment authorization request or 3DS authentication request. |
-| `type` | [`Type2 \| undefined`](../../doc/models/type-2.md) | Optional | The type of applied exemption. |
-| `result` | [`Result \| undefined`](../../doc/models/result.md) | Optional | The result of the exemption placement request. |
-| `reason` | [`Reason \| undefined`](../../doc/models/reason.md) | Optional | The reason returned by the card issuer. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `placement` | [`PlacementEnum \| undefined`](../../doc/models/placement-enum.md) | Optional | Indicates whether the exemption has been placed in a payment authorization request or 3DS authentication request. |
+| `type` | [`Type2Enum \| undefined`](../../doc/models/type-2-enum.md) | Optional | The type of applied exemption. |
+| `result` | [`ResultEnum \| undefined`](../../doc/models/result-enum.md) | Optional | The result of the exemption placement request. |
+| `reason` | [`ReasonEnum \| undefined`](../../doc/models/reason-enum.md) | Optional | The reason returned by the card issuer. |
 
 ## Example (as JSON)
 
@@ -28,11 +25,7 @@ An object containing information about the exemption.
   "placement": "authorization",
   "type": "lowRisk",
   "result": "honored",
-  "reason": "unsupportedAcquirer",
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
-  }
+  "reason": "unsupportedAcquirer"
 }
 ```
 

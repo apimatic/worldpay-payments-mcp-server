@@ -5,14 +5,7 @@
  */
 
 import { discriminatedPaymentsRecipientAccountSchema } from '../models/discriminatedSchemas.js';
-import {
-  lazy,
-  optional,
-  Schema,
-  string,
-  typedExpandoObject,
-  unknown,
-} from '../schema.js';
+import { lazy, object, optional, Schema, string } from '../schema.js';
 import { PaymentsRecipientAccount } from './paymentsRecipientAccount.js';
 import {
   PaymentsTransferAddress,
@@ -37,10 +30,9 @@ export interface PaymentsFundsRecipient {
   phoneNumber?: string;
   /** Required for domestic processing in some Latin American countries. */
   documentReference?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const paymentsFundsRecipientSchema: Schema<PaymentsFundsRecipient> = typedExpandoObject(
+export const paymentsFundsRecipientSchema: Schema<PaymentsFundsRecipient> = object(
   {
     account: [
       'account',
@@ -53,7 +45,5 @@ export const paymentsFundsRecipientSchema: Schema<PaymentsFundsRecipient> = type
     dateOfBirth: ['dateOfBirth', optional(string())],
     phoneNumber: ['phoneNumber', optional(string())],
     documentReference: ['documentReference', optional(string())],
-  },
-  'additionalProperties',
-  optional(unknown())
+  }
 );

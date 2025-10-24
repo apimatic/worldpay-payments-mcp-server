@@ -7,17 +7,16 @@
 import {
   boolean,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  BrowserColorDepth,
-  browserColorDepthSchema,
-} from './browserColorDepth.js';
-import { Channel, channelSchema } from './channel.js';
+  BrowserColorDepthEnum,
+  browserColorDepthEnumSchema,
+} from './browserColorDepthEnum.js';
+import { ChannelEnum, channelEnumSchema } from './channelEnum.js';
 
 /** An object containing device data for 3DS & Fraud assessment. */
 export interface DeviceData {
@@ -30,7 +29,7 @@ export interface DeviceData {
   /** Defines whether Java is enabled on your customers browser. */
   browserJavaEnabled?: boolean;
   /** The color depth of your customers browser */
-  browserColorDepth?: BrowserColorDepth;
+  browserColorDepth?: BrowserColorDepthEnum;
   /** Defines the pixel height of the customers browser. */
   browserScreenHeight?: number;
   /** Defines the pixel width of the customers browser. */
@@ -48,23 +47,21 @@ export interface DeviceData {
   /** Defines whether Javascript is enabled on your customers browser. */
   browserJavascriptEnabled?: boolean;
   /** Determines the channel that the transaction came through. `native` should only be set if using the Cardinal 3DS SDK (iOS/Android) */
-  channel?: Channel;
-  additionalProperties?: Record<string, unknown>;
+  channel?: ChannelEnum;
 }
 
-export const deviceDataSchema: Schema<DeviceData> = typedExpandoObject(
-  {
-    acceptHeader: ['acceptHeader', string()],
-    userAgentHeader: ['userAgentHeader', string()],
-    browserLanguage: ['browserLanguage', optional(string())],
-    browserJavaEnabled: ['browserJavaEnabled', optional(boolean())],
-    browserColorDepth: ['browserColorDepth', optional(browserColorDepthSchema)],
-    browserScreenHeight: ['browserScreenHeight', optional(number())],
-    browserScreenWidth: ['browserScreenWidth', optional(number())],
-    timeZone: ['timeZone', optional(string())],
-    browserJavascriptEnabled: ['browserJavascriptEnabled', optional(boolean())],
-    channel: ['channel', optional(channelSchema)],
-  },
-  'additionalProperties',
-  optional(unknown())
-);
+export const deviceDataSchema: Schema<DeviceData> = object({
+  acceptHeader: ['acceptHeader', string()],
+  userAgentHeader: ['userAgentHeader', string()],
+  browserLanguage: ['browserLanguage', optional(string())],
+  browserJavaEnabled: ['browserJavaEnabled', optional(boolean())],
+  browserColorDepth: [
+    'browserColorDepth',
+    optional(browserColorDepthEnumSchema),
+  ],
+  browserScreenHeight: ['browserScreenHeight', optional(number())],
+  browserScreenWidth: ['browserScreenWidth', optional(number())],
+  timeZone: ['timeZone', optional(string())],
+  browserJavascriptEnabled: ['browserJavascriptEnabled', optional(boolean())],
+  channel: ['channel', optional(channelEnumSchema)],
+});

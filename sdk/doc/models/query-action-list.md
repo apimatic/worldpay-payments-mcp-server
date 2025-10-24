@@ -1,8 +1,6 @@
 
 # Query Action List
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `QueryActionList`
@@ -16,7 +14,6 @@
 | `settlePayment` | [`PaymentsActionSettle \| undefined`](../../doc/models/payments-action-settle.md) | Optional | Fully settle the payment. See [details](../payments-lifecycle/settle) |
 | `refundPayment` | [`PaymentsActionRefund \| undefined`](../../doc/models/payments-action-refund.md) | Optional | Fully refund the payment. See [details](../payments-lifecycle/refund) |
 | `partiallyRefundPayment` | [`PaymentsActionPartialRefund \| undefined`](../../doc/models/payments-action-partial-refund.md) | Optional | Partially refund the payment. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -24,47 +21,23 @@
 {
   "cancelPayment": {
     "href": "href4",
-    "method": "method4",
-    "exampleAdditionalProperty": {
-      "key1": "val1",
-      "key2": "val2"
-    }
+    "method": "method4"
   },
   "partiallySettlePayment": {
     "href": "href8",
-    "method": "method0",
-    "exampleAdditionalProperty": {
-      "key1": "val1",
-      "key2": "val2"
-    }
+    "method": "method0"
   },
   "settlePayment": {
     "href": "href4",
-    "method": "method4",
-    "exampleAdditionalProperty": {
-      "key1": "val1",
-      "key2": "val2"
-    }
+    "method": "method4"
   },
   "refundPayment": {
     "href": "href6",
-    "method": "method2",
-    "exampleAdditionalProperty": {
-      "key1": "val1",
-      "key2": "val2"
-    }
+    "method": "method2"
   },
   "partiallyRefundPayment": {
     "href": "href6",
-    "method": "method2",
-    "exampleAdditionalProperty": {
-      "key1": "val1",
-      "key2": "val2"
-    }
-  },
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
+    "method": "method2"
   }
 }
 ```

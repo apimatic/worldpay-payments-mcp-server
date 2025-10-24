@@ -5,15 +5,8 @@
  */
 
 import { discriminatedPaymentsInstructionSchema } from '../models/discriminatedSchemas.js';
-import {
-  lazy,
-  optional,
-  Schema,
-  string,
-  typedExpandoObject,
-  unknown,
-} from '../schema.js';
-import { Channel1, channel1Schema } from './channel1.js';
+import { lazy, object, optional, Schema, string } from '../schema.js';
+import { Channel1Enum, channel1EnumSchema } from './channel1Enum.js';
 import { Merchant, merchantSchema } from './merchant.js';
 import { PaymentsInstruction } from './paymentsInstruction.js';
 
@@ -28,20 +21,15 @@ export interface PaymentRequest {
    * Interaction between the cardholder and you. Supply a value of `ecom` to process an eCommerce authorization. Supply a value of `moto` to process an authorization as a [__Mail Order or Telephone Order__](/products/payments/enable-features/moto) transaction.
    * __Note: 3DS authentication cannot be supplied for MOTO payments__.
    */
-  channel?: Channel1;
-  additionalProperties?: Record<string, unknown>;
+  channel?: Channel1Enum;
 }
 
-export const paymentRequestSchema: Schema<PaymentRequest> = typedExpandoObject(
-  {
-    transactionReference: ['transactionReference', string()],
-    merchant: ['merchant', lazy(() => merchantSchema)],
-    instruction: [
-      'instruction',
-      lazy(() => discriminatedPaymentsInstructionSchema),
-    ],
-    channel: ['channel', optional(channel1Schema)],
-  },
-  'additionalProperties',
-  optional(unknown())
-);
+export const paymentRequestSchema: Schema<PaymentRequest> = object({
+  transactionReference: ['transactionReference', string()],
+  merchant: ['merchant', lazy(() => merchantSchema)],
+  instruction: [
+    'instruction',
+    lazy(() => discriminatedPaymentsInstructionSchema),
+  ],
+  channel: ['channel', optional(channel1EnumSchema)],
+});

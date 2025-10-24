@@ -3,8 +3,6 @@
 
 Details of the updated payment instrument.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `UpdatedPaymentInstrument`
@@ -14,8 +12,8 @@ Details of the updated payment instrument.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `appliedNetworkToken` | `boolean \| undefined` | Optional | Returned if the payment instrument was swapped for a network token. |
-| `type` | [`Type \| undefined`](../../doc/models/type.md) | Optional | - |
-| `accountUpdaterMessage` | [`AccountUpdaterMessage \| undefined`](../../doc/models/account-updater-message.md) | Optional | Details on the type of payment instrument update. |
+| `type` | [`TypeEnum \| undefined`](../../doc/models/type-enum.md) | Optional | - |
+| `accountUpdaterMessage` | [`AccountUpdaterMessageEnum \| undefined`](../../doc/models/account-updater-message-enum.md) | Optional | Details on the type of payment instrument update. |
 | `cardNumber` | `string \| undefined` | Optional | - |
 | `cardBin` | `string \| undefined` | Optional | The updated card BIN (Bank Identification Number). |
 | `lastFour` | `string \| undefined` | Optional | The four digits of the updated card. Some characters may be obfuscated with a * if the PAN length is less than 16 characters. |
@@ -23,7 +21,6 @@ Details of the updated payment instrument.
 | `cardBrand` | `string \| undefined` | Optional | The brand of the updated card. In rare circumstances a card may be reissued under a different brand. |
 | `fundingType` | `string \| undefined` | Optional | How the card is funded. |
 | `countryCode` | `string \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -34,11 +31,7 @@ Details of the updated payment instrument.
   "cardBin": "444433",
   "lastFour": "1111",
   "appliedNetworkToken": false,
-  "cardNumber": "cardNumber0",
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
-  }
+  "cardNumber": "cardNumber0"
 }
 ```
 

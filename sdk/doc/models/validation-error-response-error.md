@@ -1,8 +1,6 @@
 
 # Validation Error Response Error
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ValidationErrorResponseError`
@@ -14,7 +12,6 @@
 | `errorName` | `string \| undefined` | Optional | - |
 | `message` | `string \| undefined` | Optional | - |
 | `jsonPath` | `string \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -22,11 +19,7 @@
 {
   "errorName": "errorName6",
   "message": "message4",
-  "jsonPath": "jsonPath8",
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
-  }
+  "jsonPath": "jsonPath8"
 }
 ```
 

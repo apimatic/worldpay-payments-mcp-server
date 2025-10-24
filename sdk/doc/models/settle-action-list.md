@@ -1,8 +1,6 @@
 
 # Settle Action List
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SettleActionList`
@@ -13,7 +11,6 @@
 |  --- | --- | --- | --- |
 | `refundPayment` | [`PaymentsActionRefund \| undefined`](../../doc/models/payments-action-refund.md) | Optional | Fully refund the payment. See [details](../payments-lifecycle/refund) |
 | `partiallyRefundPayment` | [`PaymentsActionPartialRefund \| undefined`](../../doc/models/payments-action-partial-refund.md) | Optional | Partially refund the payment. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -21,23 +18,11 @@
 {
   "refundPayment": {
     "href": "href6",
-    "method": "method2",
-    "exampleAdditionalProperty": {
-      "key1": "val1",
-      "key2": "val2"
-    }
+    "method": "method2"
   },
   "partiallyRefundPayment": {
     "href": "href6",
-    "method": "method2",
-    "exampleAdditionalProperty": {
-      "key1": "val1",
-      "key2": "val2"
-    }
-  },
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
+    "method": "method2"
   }
 }
 ```

@@ -5,19 +5,21 @@
  */
 
 import { HttpClientOptions } from './clientAdapter.js';
-import { PartialLoggingOptions } from './core.js';
 
 /** An interface for all configuration parameters required by the SDK. */
 export interface Configuration {
   timeout: number;
   environment: Environment;
+  /** @deprecated use basicAuthCredentials field instead */
+  basicAuthUserName?: string;
+  /** @deprecated use basicAuthCredentials field instead */
+  basicAuthPassword?: string;
   basicAuthCredentials?: {
     username: string;
     password: string;
   };
   httpClientOptions?: Partial<HttpClientOptions>;
   unstable_httpClientOptions?: any;
-  logging?: PartialLoggingOptions;
 }
 
 /** Environments available for API */

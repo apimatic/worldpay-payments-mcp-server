@@ -3,8 +3,6 @@
 
 Contains the billing address information.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BillingAddress`
@@ -20,7 +18,6 @@ Contains the billing address information.
 | `city` | `string` | Required | Address City<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `50` |
 | `state` | `string \| undefined` | Optional | Address State<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `30` |
 | `countryCode` | `string` | Required | Must be provided in [ISO 3166-1 alpha-2 format](/products/reference/supported-countries-currencies#iso-country-codes). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -32,11 +29,7 @@ Contains the billing address information.
   "postalCode": "postalCode8",
   "city": "city6",
   "state": "state2",
-  "countryCode": "countryCode8",
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
-  }
+  "countryCode": "countryCode8"
 }
 ```
 

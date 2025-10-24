@@ -3,8 +3,6 @@
 
 Object containing details of the last transaction.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TransactionHistory`
@@ -18,7 +16,6 @@ Object containing details of the last transaction.
 | `completedLastSixMonths` | `number \| undefined` | Optional | Number of purchases with this customer account during the previous six months. |
 | `addCardsLastDay` | `number \| undefined` | Optional | Number of attempts to add a card in the last 24hrs. |
 | `shippingAddressFirstUsedAt` | `string \| undefined` | Optional | When the shipping address used for the transaction was first used. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -28,11 +25,7 @@ Object containing details of the last transaction.
   "attemptsLastYear": 180,
   "completedLastSixMonths": 56,
   "addCardsLastDay": 96,
-  "shippingAddressFirstUsedAt": "shippingAddressFirstUsedAt4",
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
-  }
+  "shippingAddressFirstUsedAt": "shippingAddressFirstUsedAt4"
 }
 ```
 

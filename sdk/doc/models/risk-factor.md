@@ -3,8 +3,6 @@
 
 Any risk factors which have been identified for the authorization. This section will not appear if no risks are identified.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `RiskFactor`
@@ -13,10 +11,9 @@ Any risk factors which have been identified for the authorization. This section 
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `risk` | [`Risk \| undefined`](../../doc/models/risk.md) | Optional | - |
-| `detail` | [`Detail \| undefined`](../../doc/models/detail.md) | Optional | - |
-| `type` | [`Type1 \| undefined`](../../doc/models/type-1.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `risk` | [`RiskEnum \| undefined`](../../doc/models/risk-enum.md) | Optional | - |
+| `detail` | [`DetailEnum \| undefined`](../../doc/models/detail-enum.md) | Optional | - |
+| `type` | [`Type1Enum \| undefined`](../../doc/models/type-1-enum.md) | Optional | - |
 
 ## Example (as JSON)
 
@@ -24,11 +21,7 @@ Any risk factors which have been identified for the authorization. This section 
 {
   "risk": "notSupplied",
   "detail": "address",
-  "type": "riskProfile",
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
-  }
+  "type": "riskProfile"
 }
 ```
 

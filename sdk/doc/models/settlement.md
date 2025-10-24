@@ -5,8 +5,6 @@ Automatically settle a payment following authorization. If any of the AVS/CVC re
 
 Read more on how to set it up under our [__Auto Settlement__](/products/payments/enable-features/auto-settlement) guide.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Settlement`
@@ -17,7 +15,6 @@ Read more on how to set it up under our [__Auto Settlement__](/products/payments
 |  --- | --- | --- | --- |
 | `auto` | `boolean` | Required | - |
 | `cancelOn` | [`Cancellation \| undefined`](../../doc/models/cancellation.md) | Optional | Configuration for when a payment is `sentForCancellation` automatically. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -26,15 +23,7 @@ Read more on how to set it up under our [__Auto Settlement__](/products/payments
   "auto": false,
   "cancelOn": {
     "cvcNotMatched": "enabled",
-    "avsNotMatched": "enabled",
-    "exampleAdditionalProperty": {
-      "key1": "val1",
-      "key2": "val2"
-    }
-  },
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
+    "avsNotMatched": "enabled"
   }
 }
 ```

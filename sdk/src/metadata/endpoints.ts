@@ -7,33 +7,33 @@
 import { CoreClient } from '@apimatic/metadata-interfaces';
 import { Client } from '../client.js';
 import { createConfigurationFromEnvironment } from '../configuration.js';
-import { M3DsActionsApi } from '../controllers/m3DsActionsApi.js';
-import { ManagePaymentsApi } from '../controllers/managePaymentsApi.js';
-import { PaymentApi } from '../controllers/paymentApi.js';
+import { M3DSActionsController } from '../controllers/m3DSActionsController.js';
+import { ManagePaymentsController } from '../controllers/managePaymentsController.js';
+import { PaymentController } from '../controllers/paymentController.js';
 import { EndpointMetadata, RequestSchema } from './endpointMetadata.js';
-import * as m3DsActionsApiSchemas from './endpointSchemas/m3DsActionsApiSchemas.js';
-import * as managePaymentsApiSchemas from './endpointSchemas/managePaymentsApiSchemas.js';
-import * as paymentApiSchemas from './endpointSchemas/paymentApiSchemas.js';
+import * as m3DSActionsControllerSchemas from './endpointSchemas/m3DSActionsControllerSchemas.js';
+import * as managePaymentsControllerSchemas from './endpointSchemas/managePaymentsControllerSchemas.js';
+import * as paymentControllerSchemas from './endpointSchemas/paymentControllerSchemas.js';
 
 export const endpoints = {
   'Payment-payment': new EndpointMetadata(
     'payment',
     'Payment',
-    new RequestSchema(paymentApiSchemas.paymentMetadataRequestSchema),
+    new RequestSchema(paymentControllerSchemas.paymentMetadataRequestSchema),
     (client, mapped) =>
-      new PaymentApi(client).payment(mapped.wpApiVersion, mapped.body),
-    'Initiate Payment'
+      new PaymentController(client).payment(mapped.wPApiVersion, mapped.body),
+    'Initiate Payment. Take merchant entity as default if not provided'
   ),
   '3DS Actions-supply3dsDeviceData': new EndpointMetadata(
     'supply3dsDeviceData',
     '3DS Actions',
     new RequestSchema(
-      m3DsActionsApiSchemas.supply3DsDeviceDataMetadataRequestSchema
+      m3DSActionsControllerSchemas.supply3dsDeviceDataMetadataRequestSchema
     ),
     (client, mapped) =>
-      new M3DsActionsApi(client).supply3DsDeviceData(
+      new M3DSActionsController(client).supply3dsDeviceData(
         mapped.linkData,
-        mapped.wpApiVersion,
+        mapped.wPApiVersion,
         mapped.body
       ),
     'Gather additional device data'
@@ -42,12 +42,12 @@ export const endpoints = {
     'complete3dsChallenge',
     '3DS Actions',
     new RequestSchema(
-      m3DsActionsApiSchemas.complete3DsChallengeMetadataRequestSchema
+      m3DSActionsControllerSchemas.complete3dsChallengeMetadataRequestSchema
     ),
     (client, mapped) =>
-      new M3DsActionsApi(client).complete3DsChallenge(
+      new M3DSActionsController(client).complete3dsChallenge(
         mapped.linkData,
-        mapped.wpApiVersion
+        mapped.wPApiVersion
       ),
     'Verify authentication challenge'
   ),
@@ -55,23 +55,25 @@ export const endpoints = {
     'queryEvents',
     'Manage Payments',
     new RequestSchema(
-      managePaymentsApiSchemas.queryEventsMetadataRequestSchema
+      managePaymentsControllerSchemas.queryEventsMetadataRequestSchema
     ),
     (client, mapped) =>
-      new ManagePaymentsApi(client).queryEvents(
+      new ManagePaymentsController(client).queryEvents(
         mapped.linkData,
-        mapped.wpApiVersion
+        mapped.wPApiVersion
       ),
     'Query a payment'
   ),
   'Manage Payments-settle': new EndpointMetadata(
     'settle',
     'Manage Payments',
-    new RequestSchema(managePaymentsApiSchemas.settleMetadataRequestSchema),
+    new RequestSchema(
+      managePaymentsControllerSchemas.settleMetadataRequestSchema
+    ),
     (client, mapped) =>
-      new ManagePaymentsApi(client).settle(
+      new ManagePaymentsController(client).settle(
         mapped.linkData,
-        mapped.wpApiVersion,
+        mapped.wPApiVersion,
         mapped.body
       ),
     'Settle a payment'
@@ -80,12 +82,12 @@ export const endpoints = {
     'partialSettle',
     'Manage Payments',
     new RequestSchema(
-      managePaymentsApiSchemas.partialSettleMetadataRequestSchema
+      managePaymentsControllerSchemas.partialSettleMetadataRequestSchema
     ),
     (client, mapped) =>
-      new ManagePaymentsApi(client).partialSettle(
+      new ManagePaymentsController(client).partialSettle(
         mapped.linkData,
-        mapped.wpApiVersion,
+        mapped.wPApiVersion,
         mapped.body
       ),
     'Partially settle a payment'
@@ -93,11 +95,13 @@ export const endpoints = {
   'Manage Payments-refund': new EndpointMetadata(
     'refund',
     'Manage Payments',
-    new RequestSchema(managePaymentsApiSchemas.refundMetadataRequestSchema),
+    new RequestSchema(
+      managePaymentsControllerSchemas.refundMetadataRequestSchema
+    ),
     (client, mapped) =>
-      new ManagePaymentsApi(client).refund(
+      new ManagePaymentsController(client).refund(
         mapped.linkData,
-        mapped.wpApiVersion,
+        mapped.wPApiVersion,
         mapped.body
       ),
     'Refund a payment'
@@ -106,12 +110,12 @@ export const endpoints = {
     'partialRefund',
     'Manage Payments',
     new RequestSchema(
-      managePaymentsApiSchemas.partialRefundMetadataRequestSchema
+      managePaymentsControllerSchemas.partialRefundMetadataRequestSchema
     ),
     (client, mapped) =>
-      new ManagePaymentsApi(client).partialRefund(
+      new ManagePaymentsController(client).partialRefund(
         mapped.linkData,
-        mapped.wpApiVersion,
+        mapped.wPApiVersion,
         mapped.body
       ),
     'Partially refund a payment'
@@ -119,11 +123,13 @@ export const endpoints = {
   'Manage Payments-cancel': new EndpointMetadata(
     'cancel',
     'Manage Payments',
-    new RequestSchema(managePaymentsApiSchemas.cancelMetadataRequestSchema),
+    new RequestSchema(
+      managePaymentsControllerSchemas.cancelMetadataRequestSchema
+    ),
     (client, mapped) =>
-      new ManagePaymentsApi(client).cancel(
+      new ManagePaymentsController(client).cancel(
         mapped.linkData,
-        mapped.wpApiVersion,
+        mapped.wPApiVersion,
         mapped.body
       ),
     'Cancel a payment'

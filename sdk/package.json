@@ -7,7 +7,8 @@
   "module": "dist/esm/index.js",
   "files": [
     "dist",
-    "src"
+    "src",
+    "test"
   ],
   "engines": {
     "node": ">=14.17.0"
@@ -15,6 +16,8 @@
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.esm.json & tsc -p tsconfig.cjs.json && node ./scripts/split-package-json.mjs",
     "prepare": "rimraf dist && tsc -p tsconfig.esm.json & tsc -p tsconfig.cjs.json && node ./scripts/split-package-json.mjs",
+    "test": "jest --passWithNoTests",
+    "test:coverage": "jest --coverage --passWithNoTests",
     "lint": "eslint **/*.ts --ignore-path .eslintignore",
     "lint:fix": "eslint **/*.ts --ignore-path .eslintignore --fix"
   },
@@ -32,6 +35,7 @@
     "name": "APIMATIC SDK Generator"
   },
   "devDependencies": {
+    "@apimatic/test-utilities": "^0.1.1",
     "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",

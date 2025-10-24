@@ -12,7 +12,6 @@ import { ApiError } from '../core.js';
 interface ErrorResponse {
   errorName?: string;
   message?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export class ErrorResponseError extends ApiError<ErrorResponse> {}

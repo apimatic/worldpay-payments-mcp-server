@@ -3,8 +3,6 @@
 
 An object that contains information about the merchant.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Merchant`
@@ -16,7 +14,6 @@ An object that contains information about the merchant.
 | `entity` | `string` | Required | Used to route the request in Access Worldpay, created as part of on-boarding.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `32`, *Pattern*: `^([A-Za-z0-9]+[A-Za-z0-9 ]*)?$` |
 | `mcc` | `string \| undefined` | Optional | You can apply a merchant category code (mcc) to an individual request. You can only provide an mcc if we have enabled the dynamic mcc feature during boarding. If enabled but not provided, merchant.mcc defaults to a configured value.<br><br>**Constraints**: *Pattern*: `^\d{4}$` |
 | `paymentFacilitator` | [`PaymentsPaymentFacilitator \| undefined`](../../doc/models/payments-payment-facilitator.md) | Optional | An object containing Payment Facilitator information. This information is required for every authorization [__only if you are a Payment Facilitator__](/products/payments/enable-features/payment-facilitator) |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -35,28 +32,12 @@ An object that contains information about the merchant.
         "street": "street6",
         "city": "city6",
         "state": "state2",
-        "countryCode": "countryCode8",
-        "exampleAdditionalProperty": {
-          "key1": "val1",
-          "key2": "val2"
-        }
+        "countryCode": "countryCode8"
       },
       "phoneNumber": "phoneNumber4",
       "taxReference": "taxReference0",
-      "email": "email0",
-      "exampleAdditionalProperty": {
-        "key1": "val1",
-        "key2": "val2"
-      }
-    },
-    "exampleAdditionalProperty": {
-      "key1": "val1",
-      "key2": "val2"
+      "email": "email0"
     }
-  },
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
   }
 }
 ```

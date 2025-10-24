@@ -1,8 +1,6 @@
 
 # Token Payment Instrument
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TokenPaymentInstrument`
@@ -19,7 +17,6 @@
 | `cvc` | `string \| undefined` | Optional | CVC is a unique set of 3 or 4 numbers on the back of the card. Our API checks to see if the CVC supplied matches the CVC held by the issuing bank.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `4`, *Pattern*: `[0-9]*$` |
 | `cvcSessionHref` | `string \| undefined` | Optional | Href to the Checkout session providing the Card Verification Code (CVC).__Note:__ Provide a value in `cvcSessionHref` or `cvc`, never both. |
 | `routing` | [`Routing \| undefined`](../../doc/models/routing.md) | Optional | An object containing specific routing preferences. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -29,16 +26,8 @@
   "cvc": "123",
   "cvcSessionHref": "https://try.access.worldpay.com/sessions/eyJrIjoxLCJkIjoiNjQxbUsw...",
   "type": "token",
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
-  },
   "routing": {
-    "preferredCardBrand": "amex",
-    "exampleAdditionalProperty": {
-      "key1": "val1",
-      "key2": "val2"
-    }
+    "preferredCardBrand": "amex"
   }
 }
 ```

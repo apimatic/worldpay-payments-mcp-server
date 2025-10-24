@@ -1,12 +1,12 @@
 # Manage Payments
 
 ```ts
-const managePaymentsApi = new ManagePaymentsApi(client);
+const managePaymentsController = new ManagePaymentsController(client);
 ```
 
 ## Class Name
 
-`ManagePaymentsApi`
+`ManagePaymentsController`
 
 ## Methods
 
@@ -25,7 +25,7 @@ Query a payment
 ```ts
 async queryEvents(
   linkData: string,
-  wpApiVersion: WpApiVersion,
+  wPApiVersion: WPApiVersionEnum,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<QueryEventsResponse>>
 ```
@@ -35,7 +35,7 @@ async queryEvents(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
+| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -47,12 +47,12 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wpApiVersion = WpApiVersion.Enum20240601;
+const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
 try {
-  const { result, ...httpResponse } = await managePaymentsApi.queryEvents(
+  const { result, ...httpResponse } = await managePaymentsController.queryEvents(
     linkData,
-    wpApiVersion
+    wPApiVersion
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
@@ -102,7 +102,7 @@ Settle a payment
 ```ts
 async settle(
   linkData: string,
-  wpApiVersion: WpApiVersion,
+  wPApiVersion: WPApiVersionEnum,
   body?: unknown,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<SettleResponse>>
@@ -113,7 +113,7 @@ async settle(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
+| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
 | `body` | `unknown \| undefined` | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -126,12 +126,12 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wpApiVersion = WpApiVersion.Enum20240601;
+const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
 try {
-  const { result, ...httpResponse } = await managePaymentsApi.settle(
+  const { result, ...httpResponse } = await managePaymentsController.settle(
     linkData,
-    wpApiVersion
+    wPApiVersion
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
@@ -184,7 +184,7 @@ Partially settle a payment
 ```ts
 async partialSettle(
   linkData: string,
-  wpApiVersion: WpApiVersion,
+  wPApiVersion: WPApiVersionEnum,
   body: PaymentsPartialSettleRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<PartialSettleResponse>>
@@ -195,7 +195,7 @@ async partialSettle(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
+| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
 | `body` | [`PaymentsPartialSettleRequest`](../../doc/models/payments-partial-settle-request.md) | Body, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -208,7 +208,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wpApiVersion = WpApiVersion.Enum20240601;
+const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
 const body: PaymentsPartialSettleRequest = {
   reference: 'partial-settle-reference',
@@ -223,9 +223,9 @@ const body: PaymentsPartialSettleRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await managePaymentsApi.partialSettle(
+  const { result, ...httpResponse } = await managePaymentsController.partialSettle(
     linkData,
-    wpApiVersion,
+    wPApiVersion,
     body
   );
   // Get more response info...
@@ -288,7 +288,7 @@ Refund a payment
 ```ts
 async refund(
   linkData: string,
-  wpApiVersion: WpApiVersion,
+  wPApiVersion: WPApiVersionEnum,
   body?: unknown,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<RefundResponse>>
@@ -299,7 +299,7 @@ async refund(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
+| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
 | `body` | `unknown \| undefined` | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -312,12 +312,12 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wpApiVersion = WpApiVersion.Enum20240601;
+const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
 try {
-  const { result, ...httpResponse } = await managePaymentsApi.refund(
+  const { result, ...httpResponse } = await managePaymentsController.refund(
     linkData,
-    wpApiVersion
+    wPApiVersion
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
@@ -360,7 +360,7 @@ Partially refund a payment
 ```ts
 async partialRefund(
   linkData: string,
-  wpApiVersion: WpApiVersion,
+  wPApiVersion: WPApiVersionEnum,
   body: PaymentsPartialRefundRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<PartialRefundResponse>>
@@ -371,7 +371,7 @@ async partialRefund(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
+| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
 | `body` | [`PaymentsPartialRefundRequest`](../../doc/models/payments-partial-refund-request.md) | Body, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -384,7 +384,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wpApiVersion = WpApiVersion.Enum20240601;
+const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
 const body: PaymentsPartialRefundRequest = {
   reference: 'partial-refund-reference',
@@ -395,9 +395,9 @@ const body: PaymentsPartialRefundRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await managePaymentsApi.partialRefund(
+  const { result, ...httpResponse } = await managePaymentsController.partialRefund(
     linkData,
-    wpApiVersion,
+    wPApiVersion,
     body
   );
   // Get more response info...
@@ -448,7 +448,7 @@ Cancel a payment
 ```ts
 async cancel(
   linkData: string,
-  wpApiVersion: WpApiVersion,
+  wPApiVersion: WPApiVersionEnum,
   body?: unknown,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<CancelResponse>>
@@ -459,7 +459,7 @@ async cancel(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
+| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
 | `body` | `unknown \| undefined` | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -472,12 +472,12 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wpApiVersion = WpApiVersion.Enum20240601;
+const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
 try {
-  const { result, ...httpResponse } = await managePaymentsApi.cancel(
+  const { result, ...httpResponse } = await managePaymentsController.cancel(
     linkData,
-    wpApiVersion
+    wPApiVersion
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;

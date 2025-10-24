@@ -13,7 +13,6 @@ interface HeaderErrorResponse {
   errorName?: string;
   message?: string;
   headerName?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export class HeaderErrorResponseError extends ApiError<HeaderErrorResponse> {}

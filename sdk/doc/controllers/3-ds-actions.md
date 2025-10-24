@@ -1,12 +1,12 @@
 # 3 DS Actions
 
 ```ts
-const m3DsActionsApi = new M3DsActionsApi(client);
+const m3DSActionsController = new M3DSActionsController(client);
 ```
 
 ## Class Name
 
-`M3DsActionsApi`
+`M3DSActionsController`
 
 ## Methods
 
@@ -19,9 +19,9 @@ const m3DsActionsApi = new M3DsActionsApi(client);
 Gather additional device data
 
 ```ts
-async supply3DsDeviceData(
+async supply3dsDeviceData(
   linkData: string,
-  wpApiVersion: WpApiVersion,
+  wPApiVersion: WPApiVersionEnum,
   body?: DeviceDataRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<DeviceDataResponse201>>
@@ -32,7 +32,7 @@ async supply3DsDeviceData(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
+| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
 | `body` | [`DeviceDataRequest \| undefined`](../../doc/models/device-data-request.md) | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -45,12 +45,12 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wpApiVersion = WpApiVersion.Enum20240601;
+const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
 try {
-  const { result, ...httpResponse } = await m3DsActionsApi.supply3DsDeviceData(
+  const { result, ...httpResponse } = await m3DSActionsController.supply3dsDeviceData(
     linkData,
-    wpApiVersion
+    wPApiVersion
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
@@ -102,9 +102,9 @@ try {
 Verify authentication challenge
 
 ```ts
-async complete3DsChallenge(
+async complete3dsChallenge(
   linkData: string,
-  wpApiVersion: WpApiVersion,
+  wPApiVersion: WPApiVersionEnum,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<ChallengeResponse201>>
 ```
@@ -114,7 +114,7 @@ async complete3DsChallenge(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
-| `wpApiVersion` | [`WpApiVersion`](../../doc/models/wp-api-version.md) | Header, Required | The API version |
+| `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -126,12 +126,12 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const linkData = 'linkData6';
 
-const wpApiVersion = WpApiVersion.Enum20240601;
+const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
 try {
-  const { result, ...httpResponse } = await m3DsActionsApi.complete3DsChallenge(
+  const { result, ...httpResponse } = await m3DSActionsController.complete3dsChallenge(
     linkData,
-    wpApiVersion
+    wPApiVersion
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
