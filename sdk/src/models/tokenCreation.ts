@@ -5,10 +5,11 @@
  */
 
 import { object, optional, Schema, string } from '../schema.js';
+import { Type8Enum, type8EnumSchema } from './type8Enum.js';
 
 /** Use this object if you want to create a token after the payment. Can only be used with paymentInstrument.type: card/plain & checkout. */
 export interface TokenCreation {
-  type: string;
+  type: Type8Enum;
   /** A namespace is used to group up to 16 cards, e.g. for one customer. A card can exist in more than one namespace. */
   namespace?: string;
   /** A description of your token. If not supplied, a default description is created for you. */
@@ -16,7 +17,7 @@ export interface TokenCreation {
 }
 
 export const tokenCreationSchema: Schema<TokenCreation> = object({
-  type: ['type', string()],
+  type: ['type', type8EnumSchema],
   namespace: ['namespace', optional(string())],
   description: ['description', optional(string())],
 });

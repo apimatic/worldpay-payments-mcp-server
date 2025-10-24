@@ -13,8 +13,8 @@ Read more on how to set it up under our [__3DS Authentication__](/products/payme
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | `string` | Required, Constant | **Value**: `'integrated'` |
-| `mode` | `string` | Required, Constant | **Value**: `'always'` |
+| `type` | [`Type10Enum`](../../doc/models/type-10-enum.md) | Required | - |
+| `mode` | [`ModeEnum`](../../doc/models/mode-enum.md) | Required | - |
 | `challenge` | [`Challenge`](../../doc/models/challenge.md) | Required | An object containing 3DS challenge preferences and configuration. |
 | `deviceData` | [`DeviceData`](../../doc/models/device-data.md) | Required | An object containing device data for 3DS & Fraud assessment. |
 | `exemptionOnOutage` | `boolean \| undefined` | Optional | Attempt authorization (without liability shift) using an authentication outage exemption in the event of a 3DS network failure. Even with this boolean set it is not currently part of default merchant setup. See [how to enable authentication outage exemptions](/products/payments/enable-features/3ds-authentication#how-to-enable-authentication-outage-exemptions)<br><br>**Default**: `false` |

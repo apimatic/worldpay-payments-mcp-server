@@ -8,6 +8,7 @@ import { boolean, lazy, object, optional, Schema, string } from '../schema.js';
 import { AccountHistory, accountHistorySchema } from './accountHistory.js';
 import { Challenge, challengeSchema } from './challenge.js';
 import { DeviceData, deviceDataSchema } from './deviceData.js';
+import { ModeEnum, modeEnumSchema } from './modeEnum.js';
 import {
   PaymentsGiftCardsPurchase,
   paymentsGiftCardsPurchaseSchema,
@@ -16,6 +17,7 @@ import {
   TransactionHistory,
   transactionHistorySchema,
 } from './transactionHistory.js';
+import { Type10Enum, type10EnumSchema } from './type10Enum.js';
 import { UserTypeEnum, userTypeEnumSchema } from './userTypeEnum.js';
 
 /**
@@ -23,8 +25,8 @@ import { UserTypeEnum, userTypeEnumSchema } from './userTypeEnum.js';
  * Read more on how to set it up under our [__3DS Authentication__](/products/payments/enable-features/3ds-authentication) guide.
  */
 export interface PaymentsThreeDS {
-  type: string;
-  mode: string;
+  type: Type10Enum;
+  mode: ModeEnum;
   /** An object containing 3DS challenge preferences and configuration. */
   challenge: Challenge;
   /** An object containing device data for 3DS & Fraud assessment. */
@@ -47,8 +49,8 @@ export interface PaymentsThreeDS {
 }
 
 export const paymentsThreeDSSchema: Schema<PaymentsThreeDS> = object({
-  type: ['type', string()],
-  mode: ['mode', string()],
+  type: ['type', type10EnumSchema],
+  mode: ['mode', modeEnumSchema],
   challenge: ['challenge', lazy(() => challengeSchema)],
   deviceData: ['deviceData', lazy(() => deviceDataSchema)],
   exemptionOnOutage: ['exemptionOnOutage', optional(boolean())],

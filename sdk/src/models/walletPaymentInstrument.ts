@@ -6,10 +6,11 @@
 
 import { lazy, object, optional, Schema, string } from '../schema.js';
 import { BillingAddress, billingAddressSchema } from './billingAddress.js';
+import { Type6Enum, type6EnumSchema } from './type6Enum.js';
 
 export interface WalletPaymentInstrument {
   /** The type of instrument. */
-  type: string;
+  type: Type6Enum;
   walletToken: string;
   /** Contains the billing address information. */
   billingAddress?: BillingAddress;
@@ -17,7 +18,7 @@ export interface WalletPaymentInstrument {
 
 export const walletPaymentInstrumentSchema: Schema<WalletPaymentInstrument> = object(
   {
-    type: ['type', string()],
+    type: ['type', type6EnumSchema],
     walletToken: ['walletToken', string()],
     billingAddress: [
       'billingAddress',

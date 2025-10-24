@@ -74,7 +74,7 @@ export const endpoints = {
       new ManagePaymentsController(client).settle(
         mapped.linkData,
         mapped.wPApiVersion,
-        mapped.body
+        mapped.contentType
       ),
     'Settle a payment'
   ),
@@ -102,7 +102,7 @@ export const endpoints = {
       new ManagePaymentsController(client).refund(
         mapped.linkData,
         mapped.wPApiVersion,
-        mapped.body
+        mapped.contentType
       ),
     'Refund a payment'
   ),
@@ -129,7 +129,8 @@ export const endpoints = {
     (client, mapped) =>
       new ManagePaymentsController(client).cancel(
         mapped.linkData,
-        mapped.wPApiVersion
+        mapped.wPApiVersion,
+        mapped.contentType
       ),
     'Cancel a payment'
   ),

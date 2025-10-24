@@ -74,13 +74,13 @@
     },
     "method": "PaymentsInstruction",
     "tokenCreation": {
-      "type": "type6",
+      "type": "worldpay",
       "namespace": "namespace8",
       "description": "description4"
     },
     "debtRepayment": false,
     "fraud": {
-      "type": "type6",
+      "type": "fraudSight",
       "silentMode": false,
       "tmxSessionId": "tmxSessionId0",
       "custom": {
@@ -92,8 +92,8 @@
       }
     },
     "threeDS": {
-      "type": "type8",
-      "mode": "mode0",
+      "type": "integrated",
+      "mode": "always",
       "challenge": {
         "returnUrl": "returnUrl6",
         "windowSize": "250x400",

@@ -10,6 +10,10 @@ import {
   cancelResponseSchema,
 } from '../models/cancelResponse.js';
 import {
+  ContentTypeEnum,
+  contentTypeEnumSchema,
+} from '../models/contentTypeEnum.js';
+import {
   PartialRefundResponse,
   partialRefundResponseSchema,
 } from '../models/partialRefundResponse.js';
@@ -41,7 +45,7 @@ import {
   WPApiVersionEnum,
   wPApiVersionEnumSchema,
 } from '../models/wPApiVersionEnum.js';
-import { optional, string, unknown } from '../schema.js';
+import { string } from '../schema.js';
 import { BaseController } from './baseController.js';
 import { ErrorResponseError } from '../errors/errorResponseError.js';
 import { HeaderErrorResponseError } from '../errors/headerErrorResponseError.js';
@@ -81,24 +85,23 @@ export class ManagePaymentsController extends BaseController {
    *
    * @param linkData
    * @param wPApiVersion   The API version
-   * @param body
+   * @param contentType
    * @return Response from the API call
    */
   async settle(
     linkData: string,
     wPApiVersion: WPApiVersionEnum,
-    body?: unknown,
+    contentType: ContentTypeEnum,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SettleResponse>> {
     const req = this.createRequest('POST');
     const mapped = req.prepareArgs({
       linkData: [linkData, string()],
       wPApiVersion: [wPApiVersion, wPApiVersionEnumSchema],
-      body: [body, optional(unknown())],
+      contentType: [contentType, contentTypeEnumSchema],
     });
     req.header('WP-Api-Version', mapped.wPApiVersion);
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
+    req.header('Content-Type', mapped.contentType);
     req.appendTemplatePath`/api/payments/${skipEncode(
       mapped.linkData
     )}/settlements`;
@@ -152,24 +155,23 @@ export class ManagePaymentsController extends BaseController {
    *
    * @param linkData
    * @param wPApiVersion   The API version
-   * @param body
+   * @param contentType
    * @return Response from the API call
    */
   async refund(
     linkData: string,
     wPApiVersion: WPApiVersionEnum,
-    body?: unknown,
+    contentType: ContentTypeEnum,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<RefundResponse>> {
     const req = this.createRequest('POST');
     const mapped = req.prepareArgs({
       linkData: [linkData, string()],
       wPApiVersion: [wPApiVersion, wPApiVersionEnumSchema],
-      body: [body, optional(unknown())],
+      contentType: [contentType, contentTypeEnumSchema],
     });
     req.header('WP-Api-Version', mapped.wPApiVersion);
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
+    req.header('Content-Type', mapped.contentType);
     req.appendTemplatePath`/api/payments/${skipEncode(
       mapped.linkData
     )}/refunds`;
@@ -223,19 +225,23 @@ export class ManagePaymentsController extends BaseController {
    *
    * @param linkData
    * @param wPApiVersion   The API version
+   * @param contentType
    * @return Response from the API call
    */
   async cancel(
     linkData: string,
     wPApiVersion: WPApiVersionEnum,
+    contentType: ContentTypeEnum,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<CancelResponse>> {
     const req = this.createRequest('POST');
     const mapped = req.prepareArgs({
       linkData: [linkData, string()],
       wPApiVersion: [wPApiVersion, wPApiVersionEnumSchema],
+      contentType: [contentType, contentTypeEnumSchema],
     });
     req.header('WP-Api-Version', mapped.wPApiVersion);
+    req.header('Content-Type', mapped.contentType);
     req.appendTemplatePath`/api/payments/${skipEncode(
       mapped.linkData
     )}/cancellations`;

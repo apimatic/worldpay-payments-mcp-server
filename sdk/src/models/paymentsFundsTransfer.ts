@@ -14,7 +14,7 @@ import {
   paymentsFundsSenderSchema,
 } from './paymentsFundsSender.js';
 import { PurposeEnum, purposeEnumSchema } from './purposeEnum.js';
-import { Type5Enum, type5EnumSchema } from './type5Enum.js';
+import { Type18Enum, type18EnumSchema } from './type18Enum.js';
 
 /**
  * Contains details of the funds transfer request, which is a money movement for a reason other than the purchase of goods or services (also known as Account Funding Transaction (AFT)).
@@ -22,7 +22,7 @@ import { Type5Enum, type5EnumSchema } from './type5Enum.js';
  */
 export interface PaymentsFundsTransfer {
   /** Specifies the type of the funds transfer. {% admonition type="warning" name="Note" %} You may only submit the `fundsTransfer.type` values that relate to the use cases that you have been approved for by the schemes.{% /admonition %} */
-  type: Type5Enum;
+  type: Type18Enum;
   /** Specifies the purpose of the funds transfer. Required for some regions and use cases (eg crypto). */
   purpose?: PurposeEnum;
   /** An object containing details about the recipient of funds, including name and address information, as well as recipient account details. In many use cases, the recipient is the same person as the sender (for example if your customer uses their card to load funds into their own crypto exchange or investment account). __Although an optional object in the API schema, `recipient` is required for some regions and use cases.__ */
@@ -33,7 +33,7 @@ export interface PaymentsFundsTransfer {
 
 export const paymentsFundsTransferSchema: Schema<PaymentsFundsTransfer> = object(
   {
-    type: ['type', type5EnumSchema],
+    type: ['type', type18EnumSchema],
     purpose: ['purpose', optional(purposeEnumSchema)],
     recipient: [
       'recipient',

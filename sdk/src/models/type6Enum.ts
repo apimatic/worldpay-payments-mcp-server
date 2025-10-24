@@ -10,10 +10,7 @@ import { Schema, stringEnum } from '../schema.js';
  * Enum for Type6Enum
  */
 export enum Type6Enum {
-  Wallet = 'wallet',
-  StoredValueWallet = 'storedValueWallet',
-  StagedDigitalWallet = 'stagedDigitalWallet',
-  MerchantWallet = 'merchantWallet',
+  Encrypted = 'encrypted',
 }
 
 /**

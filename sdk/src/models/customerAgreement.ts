@@ -14,10 +14,10 @@ import {
   StoredCardUsageEnum,
   storedCardUsageEnumSchema,
 } from './storedCardUsageEnum.js';
-import { Type4Enum, type4EnumSchema } from './type4Enum.js';
+import { Type12Enum, type12EnumSchema } from './type12Enum.js';
 
 export interface CustomerAgreement {
-  type?: Type4Enum;
+  type?: Type12Enum;
   /** Set to `first` to store a card or `subsequent` to use a previously stored card. */
   storedCardUsage?: StoredCardUsageEnum;
   /**
@@ -32,7 +32,7 @@ export interface CustomerAgreement {
 }
 
 export const customerAgreementSchema: Schema<CustomerAgreement> = object({
-  type: ['type', optional(type4EnumSchema)],
+  type: ['type', optional(type12EnumSchema)],
   storedCardUsage: ['storedCardUsage', optional(storedCardUsageEnumSchema)],
   installmentType: ['installmentType', optional(installmentTypeEnumSchema)],
   installmentPlan: [

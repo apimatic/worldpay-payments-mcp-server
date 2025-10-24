@@ -10,7 +10,7 @@ import { Schema, stringEnum } from '../schema.js';
  * Enum for Type4Enum
  */
 export enum Type4Enum {
-  CardOnFile = 'cardOnFile',
+  Checkout = 'checkout',
 }
 
 /**

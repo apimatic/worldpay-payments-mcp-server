@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | `string` | Required, Constant | The type of instrument.<br><br>**Value**: `'encrypted'` |
+| `type` | [`Type6Enum`](../../doc/models/type-6-enum.md) | Required | The type of instrument. |
 | `walletToken` | `string` | Required | - |
 | `billingAddress` | [`BillingAddress \| undefined`](../../doc/models/billing-address.md) | Optional | Contains the billing address information. |
 

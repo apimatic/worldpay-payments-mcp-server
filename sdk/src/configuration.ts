@@ -24,8 +24,8 @@ export interface Configuration {
 
 /** Environments available for API */
 export enum Environment {
-  Production = 'production',
-  Environment2 = 'environment2',
+  Test = 'Test',
+  Live = 'Live',
 }
 
 export function createConfigurationFromEnvironment(): Partial<Configuration> {

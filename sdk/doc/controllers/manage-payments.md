@@ -103,7 +103,7 @@ Settle a payment
 async settle(
   linkData: string,
   wPApiVersion: WPApiVersionEnum,
-  body?: unknown,
+  contentType: ContentTypeEnum,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<SettleResponse>>
 ```
@@ -114,7 +114,7 @@ async settle(
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
 | `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
-| `body` | `unknown \| undefined` | Body, Optional | - |
+| `contentType` | [`ContentTypeEnum`](../../doc/models/content-type-enum.md) | Header, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -128,10 +128,13 @@ const linkData = 'linkData6';
 
 const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
+const contentType = ContentTypeEnum.EnumApplicationjson;
+
 try {
   const { result, ...httpResponse } = await managePaymentsController.settle(
     linkData,
-    wPApiVersion
+    wPApiVersion,
+    contentType
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
@@ -211,7 +214,7 @@ const linkData = 'linkData6';
 const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
 const body: PaymentsPartialSettleRequest = {
-  reference: 'partial-settle-reference',
+  reference: ReferenceEnum.Partialsettlereference,
   value: {
     currency: 'GBP',
     amount: 500,
@@ -289,7 +292,7 @@ Refund a payment
 async refund(
   linkData: string,
   wPApiVersion: WPApiVersionEnum,
-  body?: unknown,
+  contentType: ContentTypeEnum,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<RefundResponse>>
 ```
@@ -300,7 +303,7 @@ async refund(
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
 | `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
-| `body` | `unknown \| undefined` | Body, Optional | - |
+| `contentType` | [`ContentTypeEnum`](../../doc/models/content-type-enum.md) | Header, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -314,10 +317,13 @@ const linkData = 'linkData6';
 
 const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
+const contentType = ContentTypeEnum.EnumApplicationjson;
+
 try {
   const { result, ...httpResponse } = await managePaymentsController.refund(
     linkData,
-    wPApiVersion
+    wPApiVersion,
+    contentType
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
@@ -387,7 +393,7 @@ const linkData = 'linkData6';
 const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
 const body: PaymentsPartialRefundRequest = {
-  reference: 'partial-refund-reference',
+  reference: Reference1Enum.Partialrefundreference,
   value: {
     currency: 'GBP',
     amount: 10,
@@ -449,6 +455,7 @@ Cancel a payment
 async cancel(
   linkData: string,
   wPApiVersion: WPApiVersionEnum,
+  contentType: ContentTypeEnum,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<CancelResponse>>
 ```
@@ -459,6 +466,7 @@ async cancel(
 |  --- | --- | --- | --- |
 | `linkData` | `string` | Template, Required | - |
 | `wPApiVersion` | [`WPApiVersionEnum`](../../doc/models/wp-api-version-enum.md) | Header, Required | The API version |
+| `contentType` | [`ContentTypeEnum`](../../doc/models/content-type-enum.md) | Header, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -472,10 +480,13 @@ const linkData = 'linkData6';
 
 const wPApiVersion = WPApiVersionEnum.Enum20240601;
 
+const contentType = ContentTypeEnum.EnumApplicationjson;
+
 try {
   const { result, ...httpResponse } = await managePaymentsController.cancel(
     linkData,
-    wPApiVersion
+    wPApiVersion,
+    contentType
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;

@@ -10,13 +10,7 @@ import { Schema, stringEnum } from '../schema.js';
  * Enum for Type5Enum
  */
 export enum Type5Enum {
-  AccountToAccount = 'accountToAccount',
-  Cash = 'cash',
-  Disbursement = 'disbursement',
-  PersonToPerson = 'personToPerson',
-  Purchase = 'purchase',
-  TopUp = 'topUp',
-  WalletLoad = 'walletLoad',
+  Token = 'token',
 }
 
 /**

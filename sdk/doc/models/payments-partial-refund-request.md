@@ -9,14 +9,14 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reference` | `string` | Required | - |
+| `reference` | [`Reference1Enum`](../../doc/models/reference-1-enum.md) | Required | - |
 | `value` | [`Value`](../../doc/models/value.md) | Required | - |
 
 ## Example (as JSON)
 
 ```json
 {
-  "reference": "reference8",
+  "reference": "partial-refund-reference",
   "value": {
     "currency": "USD",
     "amount": 250

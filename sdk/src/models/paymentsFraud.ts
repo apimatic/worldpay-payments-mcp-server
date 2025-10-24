@@ -6,6 +6,7 @@
 
 import { boolean, lazy, object, optional, Schema, string } from '../schema.js';
 import { Custom, customSchema } from './custom.js';
+import { Type9Enum, type9EnumSchema } from './type9Enum.js';
 
 /**
  * Fraud assessment to detect potential fraud and prevent the transaction from proceeding.
@@ -13,7 +14,7 @@ import { Custom, customSchema } from './custom.js';
  */
 export interface PaymentsFraud {
   /** Enable a FraudSight risk assessment */
-  type: string;
+  type: Type9Enum;
   /**
    * Perform the Fraud assessment but do not act on the outcome.
    *             Normally used for the initial launch while the data model is maturing.
@@ -26,7 +27,7 @@ export interface PaymentsFraud {
 }
 
 export const paymentsFraudSchema: Schema<PaymentsFraud> = object({
-  type: ['type', string()],
+  type: ['type', type9EnumSchema],
   silentMode: ['silentMode', optional(boolean())],
   tmxSessionId: ['tmxSessionId', optional(string())],
   custom: ['custom', optional(lazy(() => customSchema))],

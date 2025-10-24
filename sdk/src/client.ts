@@ -89,14 +89,14 @@ function createHttpClientAdapter(client: HttpClient): HttpClientInterface {
   };
 }
 
-function getBaseUri(server: Server = 'default', config: Configuration): string {
-  if (config.environment === Environment.Production) {
-    if (server === 'default') {
+function getBaseUri(server: Server = 'access', config: Configuration): string {
+  if (config.environment === Environment.Test) {
+    if (server === 'access') {
       return 'https://try.access.worldpay.com';
     }
   }
-  if (config.environment === Environment.Environment2) {
-    if (server === 'default') {
+  if (config.environment === Environment.Live) {
+    if (server === 'access') {
       return 'https://access.worldpay.com';
     }
   }

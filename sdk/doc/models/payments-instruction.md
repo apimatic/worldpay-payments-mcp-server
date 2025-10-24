@@ -64,13 +64,13 @@ An object that contains all information related to the payment and API configura
   },
   "method": "PaymentsInstruction",
   "tokenCreation": {
-    "type": "type6",
+    "type": "worldpay",
     "namespace": "namespace8",
     "description": "description4"
   },
   "debtRepayment": false,
   "fraud": {
-    "type": "type6",
+    "type": "fraudSight",
     "silentMode": false,
     "tmxSessionId": "tmxSessionId0",
     "custom": {
@@ -82,8 +82,8 @@ An object that contains all information related to the payment and API configura
     }
   },
   "threeDS": {
-    "type": "type8",
-    "mode": "mode0",
+    "type": "integrated",
+    "mode": "always",
     "challenge": {
       "returnUrl": "returnUrl6",
       "windowSize": "250x400",

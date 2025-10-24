@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | [`Type4Enum \| undefined`](../../doc/models/type-4-enum.md) | Optional | - |
+| `type` | [`Type12Enum \| undefined`](../../doc/models/type-12-enum.md) | Optional | - |
 | `storedCardUsage` | [`StoredCardUsageEnum \| undefined`](../../doc/models/stored-card-usage-enum.md) | Optional | Set to `first` to store a card or `subsequent` to use a previously stored card. |
 | `installmentType` | [`InstallmentTypeEnum \| undefined`](../../doc/models/installment-type-enum.md) | Optional | Defines the type of installments service.<br><br>Read more on how to set up [__Latin America Installments__](/products/payments/enable-features/latam-installments) under our guide. |
 | `installmentPlan` | [`InstallmentPlan \| undefined`](../../doc/models/installment-plan.md) | Optional | Required only for `latinAmerica` installment type. Not allowed for `merchant` installment type. |

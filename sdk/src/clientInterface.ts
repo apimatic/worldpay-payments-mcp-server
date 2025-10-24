@@ -18,7 +18,7 @@ export type SdkRequestBuilderFactory = RequestBuilderFactory<
 
 export type SdkRequestBuilder = ReturnType<SdkRequestBuilderFactory>;
 
-export type Server = 'default';
+export type Server = 'access';
 
 export type AuthParams = ReturnType<
   typeof createAuthProviderFromConfig

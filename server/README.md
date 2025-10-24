@@ -107,7 +107,7 @@ You can also configure the MCP server in VS Code. The setup is similar to Claude
 
 The MCP server uses the following environment variables:
 
-- `PAYMENTS_LIB_ENVIRONMENT`: Optional environment variable that must be one of the allowed enum values (production, environment2). Default: `production`.
+- `PAYMENTS_LIB_ENVIRONMENT`: Optional environment variable that must be one of the allowed enum values (Test, Live). Default: `Test`.
 - `PAYMENTS_LIB_TIMEOUT`: Timeout for API calls. Optional number variable. Default: `0`.
 
 - **Authentication Variables**

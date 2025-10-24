@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | [`Type3Enum \| undefined`](../../doc/models/type-3-enum.md) | Optional | The type of instrument. |
+| `type` | [`Type7Enum \| undefined`](../../doc/models/type-7-enum.md) | Optional | The type of instrument. |
 | `cardNumber` | `string \| undefined` | Optional | Customer's card number.<br><br>**Constraints**: *Minimum Length*: `12`, *Maximum Length*: `19` |
 | `cardHolderName` | `string \| undefined` | Optional | The name on your customer's card. Required if  instruction.tokenCreation is present. However we recommend that you supply this to improve authentication rates.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255` |
 | `expiryDate` | [`ExpiryDate \| undefined`](../../doc/models/expiry-date.md) | Optional | Contains your customer's card or token expiry date. |

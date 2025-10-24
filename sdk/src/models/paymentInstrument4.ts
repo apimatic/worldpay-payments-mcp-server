@@ -8,11 +8,11 @@ import { lazy, object, optional, Schema, string } from '../schema.js';
 import { BillingAddress, billingAddressSchema } from './billingAddress.js';
 import { ExpiryDate, expiryDateSchema } from './expiryDate.js';
 import { Routing, routingSchema } from './routing.js';
-import { Type3Enum, type3EnumSchema } from './type3Enum.js';
+import { Type7Enum, type7EnumSchema } from './type7Enum.js';
 
 export interface PaymentInstrument4 {
   /** The type of instrument. */
-  type?: Type3Enum;
+  type?: Type7Enum;
   /** Customer's card number. */
   cardNumber?: string;
   /** The name on your customer's card. Required if  instruction.tokenCreation is present. However we recommend that you supply this to improve authentication rates. */
@@ -35,7 +35,7 @@ export interface PaymentInstrument4 {
 }
 
 export const paymentInstrument4Schema: Schema<PaymentInstrument4> = object({
-  type: ['type', optional(type3EnumSchema)],
+  type: ['type', optional(type7EnumSchema)],
   cardNumber: ['cardNumber', optional(string())],
   cardHolderName: ['cardHolderName', optional(string())],
   expiryDate: ['expiryDate', optional(lazy(() => expiryDateSchema))],

@@ -1,6 +1,8 @@
 
 # Type 6 Enum
 
+The type of instrument.
+
 ## Enumeration
 
 `Type6Enum`
@@ -9,8 +11,5 @@
 
 | Name |
 |  --- |
-| `Wallet` |
-| `StoredValueWallet` |
-| `StagedDigitalWallet` |
-| `MerchantWallet` |
+| `Encrypted` |
 
