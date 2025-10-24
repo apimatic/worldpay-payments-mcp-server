@@ -21,7 +21,7 @@ import {
   PaymentsRecipient,
   paymentsRecipientSchema,
 } from './paymentsRecipient.js';
-import { PaymentsThreeDS, paymentsThreeDSSchema } from './paymentsThreeDS.js';
+import { PaymentsThreeDS, paymentsThreeDSSchema } from './paymentsThreeDs.js';
 import { Settlement, settlementSchema } from './settlement.js';
 import { Shipping, shippingSchema } from './shipping.js';
 import { TokenCreation, tokenCreationSchema } from './tokenCreation.js';

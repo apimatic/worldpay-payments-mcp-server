@@ -13,7 +13,7 @@ import { narrativeSchema } from './narrative.js';
 import { paymentsFraudSchema } from './paymentsFraud.js';
 import { PaymentsInstruction } from './paymentsInstruction.js';
 import { paymentsRecipientSchema } from './paymentsRecipient.js';
-import { paymentsThreeDSSchema } from './paymentsThreeDS.js';
+import { paymentsThreeDSSchema } from './paymentsThreeDs.js';
 import { settlementSchema } from './settlement.js';
 import { shippingSchema } from './shipping.js';
 import { tokenCreationSchema } from './tokenCreation.js';

@@ -129,7 +129,7 @@ export type { PaymentsSocialNetworkAccount } from './models/paymentsSocialNetwor
 export type { PaymentsSubMerchant } from './models/paymentsSubMerchant.js';
 export type { PaymentsSubMerchantAddress } from './models/paymentsSubMerchantAddress.js';
 export type { PaymentsSubscriptionCustomerAgreement } from './models/paymentsSubscriptionCustomerAgreement.js';
-export type { PaymentsThreeDS } from './models/paymentsThreeDS.js';
+export type { PaymentsThreeDS } from './models/paymentsThreeDs.js';
 export type { PaymentsTransferAddress } from './models/paymentsTransferAddress.js';
 export type { PaymentsUnscheduledCustomerAgreement } from './models/paymentsUnscheduledCustomerAgreement.js';
 export type { PaymentsWalletAccount } from './models/paymentsWalletAccount.js';
