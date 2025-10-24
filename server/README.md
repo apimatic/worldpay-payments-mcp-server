@@ -64,7 +64,7 @@ You need to fill in the parts that look `[LIKE-THIS]`.
     "paymentslib-mcp-server": {
       "command": "node",
       "args": [
-         "[YOUR-PATH-HERE]/Payments/server/cli.js",
+         "[YOUR-PATH-HERE]/worldpay-payments-mcp-server/server/cli.js",
         "--transport",
         "stdio"
       ],
@@ -89,7 +89,7 @@ You can also configure the MCP server in VS Code. The setup is similar to Claude
       "type": "stdio",
       "command": "node",
       "args": [
-         "[YOUR-PATH-HERE]/Payments/server/cli.js",
+         "[YOUR-PATH-HERE]/worldpay-payments-mcp-server/server/cli.js",
         "--transport",
         "stdio"
       ],
