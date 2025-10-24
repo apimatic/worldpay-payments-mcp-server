@@ -111,7 +111,7 @@ The MCP server uses the following environment variables:
 - `PAYMENTS_LIB_TIMEOUT`: Timeout for API calls. Optional number variable. Default: `0`.
 
 - **Authentication Variables**
- The Mcp server uses the following authentication environment variables
+ The MCP server uses the following authentication environment variables
   - `PAYMENTS_LIB_BASIC_AUTH_USER_NAME`
   - `PAYMENTS_LIB_BASIC_AUTH_PASSWORD`
 
