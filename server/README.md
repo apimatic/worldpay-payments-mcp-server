@@ -124,5 +124,5 @@ The MCP server uses the following environment variables:
 ## Example Prompt
 ```
 Please create a one-off card payment using a plain card number The amount is 5 GBP and the payment method is card with following details: card number is 4000000000001091 and the expiry is may 2036 and the instrument type of the payment is plain
-Transaction Reference: [UNIQUE-REFERENCE-GENERATED-BY-YOU]
+Transaction Reference: (UNIQUE-REFERENCE-GENERATED-BY-YOU)
 ```
